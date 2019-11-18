@@ -13,9 +13,12 @@
   <link rel="stylesheet" type="text/css" href="./assets/plugins/OwlCarousel2-2.3.4/owl.carousel.css">
   <link rel="stylesheet" type="text/css" href="./assets/plugins/OwlCarousel2-2.3.4/owl.theme.default.css">
   <link rel="stylesheet" type="text/css" href="./assets/plugins/OwlCarousel2-2.3.4/animate.css">
+  
+  <link rel="stylesheet" type="text/css" href="./assets/styles/smart_wizard.css">
+  <link rel="stylesheet" type="text/css" href="./assets/styles/smart_wizard_theme_arrows.css">
+  
   <link rel="stylesheet" type="text/css" href="./assets/styles/main_styles.css">
   <link rel="stylesheet" type="text/css" href="./assets/styles/responsive.css"> 
-
 
 </head>
 <body> 
@@ -38,6 +41,9 @@
 <script src="./assets/plugins/easing/easing.js"></script>
 <script src="./assets/plugins/progressbar/progressbar.min.js"></script>
 <script src="./assets/plugins/parallax-js-master/parallax.min.js"></script>
+
+<script src="./assets/js/jquery.smartWizard.min.js"></script> 
+
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
 <script src="./assets/js/custom.js"></script> 
 
@@ -45,6 +51,36 @@
 
 
 <script type="text/javascript">
+$(document).ready(function(){
+    $('#stepwizard').smartWizard({
+        selected: 0,
+        theme: 'arrows',
+        transitionEffect:'fade',
+       lang :{
+        next:'Suivant',
+        previous:'Precedent',
+        finish:'Valider',
+       },
+
+       toolbarSettings :{
+       // toolbarPosition:'both',
+        //toolbarButtonPosition:'Left',
+        showNextButton:'true',
+        showPreviousButton:'true',
+            toolbarExtraButtons: [
+           $('<button></button>').text('Extra').addClass('btn btn-primary').on('click', function()
+            {
+                alert('custom button 1');
+            }),
+          //  $('<button></button>').text('Button').addClass('btn btn-danger').on('click', function()
+            //{
+              //  alert('custom button 2');
+           // })
+            ]
+       },
+        //ajaxType: "POST",
+    });
+});
 
 function toggleResetPswd(e){
     e.preventDefault();

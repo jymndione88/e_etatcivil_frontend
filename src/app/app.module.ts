@@ -16,8 +16,6 @@ import { UserModule } from './user/user.module';
 
     AppComponent,
     LoginAppComponent,
-
-    
   ],
   imports: [
     BrowserModule,
