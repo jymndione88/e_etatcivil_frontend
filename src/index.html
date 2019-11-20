@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>AngularMemoire2</title>
+  <title>E-administration</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,35 +49,28 @@
 
 <script src="https://maps.googleapis.com/maps/api/js"></script>
 
-
 <script type="text/javascript">
 $(document).ready(function(){
+    $('#stepModalForm').modal('handleUpdate');
     $('#stepwizard').smartWizard({
-        selected: 0,
         theme: 'arrows',
         transitionEffect:'fade',
        lang :{
         next:'Suivant',
         previous:'Precedent',
         finish:'Valider',
-       },
+      },
 
-       toolbarSettings :{
-       // toolbarPosition:'both',
-        //toolbarButtonPosition:'Left',
-        showNextButton:'true',
-        showPreviousButton:'true',
-            toolbarExtraButtons: [
-           $('<button></button>').text('Extra').addClass('btn btn-primary').on('click', function()
-            {
-                alert('custom button 1');
-            }),
-          //  $('<button></button>').text('Button').addClass('btn btn-danger').on('click', function()
-            //{
-              //  alert('custom button 2');
-           // })
-            ]
-       },
+     //  toolbarSettings :{
+       // showNextButton:'true',
+        //showPreviousButton:'true',
+         //   toolbarExtraButtons: [
+         //  $('<button></button>').text('Extra').addClass('btn btn-primary').on('click', function()
+         //   {
+         //       alert('custom button 1');
+          //  }),
+          //  ]
+     //  },
         //ajaxType: "POST",
     });
 });

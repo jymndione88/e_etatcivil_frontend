@@ -3,28 +3,27 @@ import { NgModule } from '@angular/core';
 
 import { HeaderComponent } from './layouts/header/header.component';
 import { FooterComponent } from './layouts/footer/footer.component';
-import { MenuComponent } from './layouts/menu/menu.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './sections/home/home.component';
 
-import { DemarcheComponent } from './components/demarche/demarche.component';
-import { ActualiteComponent } from './components/actualite/actualite.component';
-import { ContactComponent } from './components/contact/contact.component';
+import { DemarcheComponent } from './sections/demarche/demarche.component';
+import { ActualiteComponent } from './sections/actualite/actualite.component';
+import { ContactComponent } from './sections/contact/contact.component';
 
  import { UserComponent } from './user.component';
-import { UserRoutingModule } from './user-routing.module';
+import { UserRoutingModule } from './sections/user-routing.module';
+import { SectionsComponent } from './sections/sections.component';
 
 @NgModule({
   declarations: [
 
     HeaderComponent,
     FooterComponent,
-    MenuComponent,
     HomeComponent,
     DemarcheComponent,
     ActualiteComponent,
     ContactComponent,
-
     UserComponent,
+    SectionsComponent,
 
   ],
   imports: [
