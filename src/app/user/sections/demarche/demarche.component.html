@@ -100,19 +100,51 @@ aria-hidden="true">
 				<div id="stepwizard">
 					<ul>
 						<li><a href="#step1">Rechercher commune<br/> <small>Motif demende</small> </a></li>
-						<li><a href="#step2">Type d'acte<br/> <small> step description 2</small> </a></li>
+						<li><a href="#step2">Type d'acte<br/> <small> Nature de la demande</small> </a></li>
 						<li><a href="#step3">Identification<br/> <small> step description 3</small> </a></li>
 						<li><a href="#step4">Récapitulatif et envoi<br/> <small> step description 4</small> </a></li>
 					</ul>
 			
 					<div>
 						<div id="step1">
-						
-								<div class="form-group">
+							<div class="form-group">
+								Rechercher Commune
+								<hr>
+								Vous souhaitez obtenir une copie ou un extrait d'acte d'état civil, pour une personne née eau Sénégal.Vous pouvez effectuer votre demande en ligne auprès de la commune concernée. Suivant la commune, vous la transmettrez de façon électronique ou par courrier postal. Votre commune vous expédiera le document demandé par courrier postal. Ce service est ouvert exclusivement aux particuliers. 
+							</div>
+
+							<div class="form-group">
+								<label for="motif">Motif de la demande</label>
+								<select id="motif" class="form-control">
+									<option value="carte">Carte national d'identité</option>
+									<option value="passport">Passport</option>
+									<option value="certificat">certificat de nationalité sénégalaise</option>
+									<option value="mariage">Mariage</option>
+									<option value="pension">pension</option>
+									<option value="procedure">Precédure judiciaire</option>
+									<option value="acte">Acte de notaire</option>
+									<option value="autre">Autre</option>
+								</select>
+								<br/>
+							</div>
+
+							<div class="form-group">
+									<label for="commune">Commune concernée par l’acte</label>
+									<select id="commune" class="form-control">
+										<option  *ngFor="let commune of service.list"
+										value="{{commune.id}}">{{commune.libelle}}</option>	
+									</select>
+									<br/>
+								</div>
+
+							
+
+
+							<!--	<div class="form-group">
 										<label for="exampleInputEmail1">Email address</label>
 										<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-									  </div>
+								</div>
 									  <div class="form-group">
 										<label for="exampleInputPassword1">Password</label>
 										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
@@ -121,22 +153,6 @@ aria-hidden="true">
 											<input type="checkbox" class="custom-control-input" id="customCheck1">
 											<label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
 										  </div>
-										  <br/>
-
-										  <div class="custom-control custom-radio">
-												<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-												<label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
-											  </div>
-											  <div class="custom-control custom-radio">
-												<input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-												<label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
-											  </div>
-										  <br/>
-
-									  <select class="form-control">
-											<option>Default select</option>
-											<option>Default select</option>
-										  </select>
 										  <br/>
 
 										  <input class="form-control" type="text" placeholder="Default input">
@@ -148,25 +164,124 @@ aria-hidden="true">
 											  </div>
 										<br/>	  
 										  
-										  <div class="row">
-												<div class="col">
-												  <input type="text" class="form-control" placeholder="First name">
-												</div>
-												<div class="col">
-												  <input type="text" class="form-control" placeholder="Last name">
-												</div>
-											  </div>
-											  <br/>
-
+										  
 											  <label for="customRange1">Example range</label>
 												<input type="range" class="custom-range" id="customRange1">
 												<br/>
 
-									  <button type="submit" class="btn btn-primary">Submit</button>
+									  <button type="submit" class="btn btn-primary">Submit</button> -->
 
 						</div>
-						<div id="step2">contenu step 2</div>
-						<div id="step3">contenu step 3</div>
+						<div id="step2">
+								<div class="form-group">
+								Type d'acte
+								<hr>
+								La commune : ..... n’est pas en mesure de recevoir votre demande d’acte d’état civil de manière dématérialisée. Vous pouvez cependant compléter le formulaire de demande d’acte, à l’issue de la saisie vous pourrez télécharger et imprimer la demande complétée et l’expédier par courrier postal à l’adresse de la commune. Le document demandé vous sera expédié en retour par courrier postal.
+							</div>
+							<div class="form-group">
+									<label for="typ_decla">Type d’acte</label>
+									<select id="typ_decla" class="form-control">
+										<option  *ngFor="let typ_decla of ser_typ_decla.list"
+										value="{{typ_decla.id}}">{{typ_decla.type}}</option>	
+									</select>
+									<br/>
+								</div>
+
+								<div class="form-group">
+										<label for="qualite">Qualité du demandeur</label>
+										<select id="qualite" class="form-control">
+											<option value="personne">La personne concernée par l'acte</option>
+											<option value="pere">Son pére ou sa mère</option>
+											<option value="conjoint">Son conjoint ou sa conjointe</option>
+											<option value="fils">Son fils ou sa fille</option>
+											<option value="representant">Son représentant légal</option>
+											<option value="autre">Autre</option>
+										</select>
+										<br/>
+									</div>
+
+									<div class="form-group">
+											<label for="nature">Nature de l'acte</label>
+											<select id="nature" class="form-control">
+												<option value="copie">Copie intégrale</option>
+												<option value="avec">Extrait avec filiation</option>
+												<option value="sans">Extrait sans filiation</option>
+											</select>
+											<br/>
+										</div>
+
+										<div class="form-group">
+												<label for="nombre">Nombre d'exemplaire</label>
+												<select id="nombre" class="form-control">
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
+												</select>
+												<br/>
+											</div>
+
+						</div>
+						<div id="step3">
+								<div class="form-group">
+										Identification
+										<hr>
+									</div>
+									<div class="form-group">
+											<label for="identite">Identité du demandeur</label>
+									<div class="custom-control custom-radio">
+											<input type="radio" id="civilite1" name="civilite" class="custom-control-input">
+											<label class="custom-control-label" for="civilite1">Monsieur</label>
+										  </div>
+										  <div class="custom-control custom-radio">
+											<input type="radio" id="civilite2" name="civilite" class="custom-control-input">
+											<label class="custom-control-label" for="civilite2">Madame</label>
+										  </div>
+									</div>
+
+									<div class="row">
+											<div class="col">
+												<label for="nom">Nom</label>
+											  <input type="text" name="nom" class="form-control" placeholder="Nom">
+											</div>
+											<div class="col">
+												<label for="prenoms">Prénoms</label>
+											  <input type="text" name="prenom" class="form-control" placeholder="Prénoms">
+											</div>
+										  </div>
+										  <br/>
+
+									<div class="form-group">
+										  Identité de la personne faisant l'objet de la demande
+										  <hr>
+										  <div class="form-group">
+												<label for="identite_concerne">Identité du demandeur</label>
+										<div class="custom-control custom-radio">
+												<input type="radio" id="civilite1_concerne" name="civilite_concerne" class="custom-control-input">
+												<label class="custom-control-label" for="civilite1_concerne">Monsieur</label>
+											  </div>
+											  <div class="custom-control custom-radio">
+												<input type="radio" id="civilite2_concerne" name="civilite_concerne" class="custom-control-input">
+												<label class="custom-control-label" for="civilite2_concerne">Madame</label>
+											  </div>
+										</div>
+	
+										<div class="row">
+												<div class="col">
+													<label for="nom_concerne">Nom</label>
+												  <input type="text" name="nom_concerne" class="form-control" placeholder="Nom">
+												</div>
+												<div class="col">
+													<label for="prenoms_concerne">Prénoms</label>
+												  <input type="text" name="prenom_concerne" class="form-control" placeholder="Prénoms">
+												</div>
+											  </div>
+
+									  </div>
+
+
+						</div>
 						<div id="step4">contenu step 4</div>
 					</div>
 					

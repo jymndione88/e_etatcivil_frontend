@@ -14,7 +14,7 @@ export class Type_declarationService {
 
   constructor(private http: HttpClient
     ) { }
-    readonly serverUrl = environment.apiURL + "/Type_declaration";
+    readonly serverUrl = environment.apiURL + "/typedeclaration";
 
   loadListeType_declaration() {
     return this.http.get(this.serverUrl)
@@ -23,7 +23,7 @@ export class Type_declarationService {
   }
 
   getType_declarationBytype(id_type: number) {
-    return this.http.get(environment.apiURL+"/Type_declarationbytype/"+id_type);
+    return this.http.get(environment.apiURL+"/typedeclarationbytype/"+id_type);
   }
 
   getType_declaration(id: number) {

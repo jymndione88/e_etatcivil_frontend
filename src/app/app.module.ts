@@ -15,6 +15,8 @@ import { AppComponent } from './app.component';
 
 import { LoginAppComponent } from './login-app/login-app.component';
 
+import { HttpClientModule } from '@angular/common/http'; 
+
 //import { AdminModule } from './admin/admin.module';
 //import { UserModule } from './user/user.module';
 
@@ -37,6 +39,7 @@ import { LoginAppComponent } from './login-app/login-app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
 
     //UserModule,
     //AdminModule,

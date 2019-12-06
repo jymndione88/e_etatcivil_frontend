@@ -14,7 +14,7 @@ export class Type_communeService {
 
   constructor(private http: HttpClient
     ) { }
-    readonly serverUrl = environment.apiURL + "/Type_commune";
+    readonly serverUrl = environment.apiURL + "/typecommune";
 
   loadListeType_commune() {
     return this.http.get(this.serverUrl)
@@ -23,7 +23,7 @@ export class Type_communeService {
   }
 
   getType_communeBytype(id_type: number) {
-    return this.http.get(environment.apiURL+"/Type_communebytype/"+id_type);
+    return this.http.get(environment.apiURL+"/typecommunebytype/"+id_type);
   }
 
   getType_commune(id: number) {

@@ -14,7 +14,7 @@ export class Type_etatcivilService {
 
   constructor(private http: HttpClient
     ) { }
-    readonly serverUrl = environment.apiURL + "/Type_etatcivil";
+    readonly serverUrl = environment.apiURL + "/typeetatcivil";
 
   loadListeType_etatcivil() {
     return this.http.get(this.serverUrl)
@@ -23,7 +23,7 @@ export class Type_etatcivilService {
   }
 
   getType_etatcivilBytype(id_type: number) {
-    return this.http.get(environment.apiURL+"/Type_etatcivilbytype/"+id_type);
+    return this.http.get(environment.apiURL+"/typeetatcivilbytype/"+id_type);
   }
 
   getType_etatcivil(id: number) {

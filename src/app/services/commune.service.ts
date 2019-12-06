@@ -14,7 +14,7 @@ export class CommuneService {
 
   constructor(private http: HttpClient
     ) { }
-    readonly serverUrl = environment.apiURL + "/Commune";
+    readonly serverUrl = environment.apiURL + "/commune";
 
   loadListeCommune() {
     return this.http.get(this.serverUrl)
@@ -23,7 +23,7 @@ export class CommuneService {
   }
 
   getCommuneBytype(id_type: number) {
-    return this.http.get(environment.apiURL+"/Communebytype/"+id_type);
+    return this.http.get(environment.apiURL+"/communebytype/"+id_type);
   }
 
   getCommune(id: number) {
