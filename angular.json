@@ -23,9 +23,55 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/styles/bootstrap-4.1.2/bootstrap.min.css",
+    "src/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css",
+    "src/assets/plugins/OwlCarousel2-2.3.4/owl.carousel.css",
+    "src/assets/plugins/OwlCarousel2-2.3.4/owl.theme.default.css",
+    "src/assets/plugins/OwlCarousel2-2.3.4/animate.css",
+    "src/assets/styles/smart_wizard.css",
+    "src/assets/styles/smart_wizard_theme_arrows.css",
+    "src/assets/styles/main_styles.css",
+    "src/assets/styles/responsive.css",
+    "src/assets/styles/bootstrap-datepicker.min.css",
+              "src/styles.css",
+
+
+            "src/assets/plugins_admin/fontawesome-free/css/all.min.css",
+            "src/assets/plugins_admin/overlayScrollbars/css/OverlayScrollbars.min.css",
+            "src/assets/dist/css/adminlte.min.css"
+             
             ],
-            "scripts": [],
+            "scripts": [
+               "src/assets/js/jquery-3.3.1.min.js",
+    "src/assets/styles/bootstrap-4.1.2/popper.js",
+    "src/assets/styles/bootstrap-4.1.2/bootstrap.min.js",
+    "src/assets/plugins/greensock/TweenMax.min.js",
+    "src/assets/plugins/greensock/TimelineMax.min.js",
+    "src/assets/plugins/scrollmagic/ScrollMagic.min.js",
+    "src/assets/plugins/greensock/animation.gsap.min.js",
+    "src/assets/plugins/greensock/ScrollToPlugin.min.js",
+    "src/assets/plugins/OwlCarousel2-2.3.4/owl.carousel.js",
+    "src/assets/plugins/easing/easing.js",
+    "src/assets/plugins/progressbar/progressbar.min.js",
+    "src/assets/plugins/parallax-js-master/parallax.min.js",
+    "src/assets/js/jquery.smartWizard.min.js",
+    "src/assets/js/custom.js",
+    "src/assets/js/bootstrap-datepicker.min.js",
+    "src/assets/js/validator.min.js",
+              "src/assets/js/customuser.js",
+
+              "src/assets/plugins_admin/bootstrap/js/bootstrap.bundle.min.js",
+              "src/assets/plugins_admin/overlayScrollbars/js/jquery.overlayScrollbars.min.js",
+              "src/assets/dist/js/adminlte.js",
+              "src/assets/dist/js/demo.js",
+              "src/assets/plugins_admin/jquery-mousewheel/jquery.mousewheel.js",
+              "src/assets/plugins_admin/raphael/raphael.min.js",
+              "src/assets/plugins_admin/jquery-mapael/jquery.mapael.min.js",
+              "src/assets/plugins_admin/jquery-mapael/maps/usa_states.min.js",
+              "src/assets/plugins_admin/chart.js/Chart.min.js",
+              "src/assets/dist/js/pages/dashboard2.js"
+             
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
