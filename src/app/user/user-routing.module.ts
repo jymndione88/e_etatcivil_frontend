@@ -14,15 +14,14 @@ const routes: Routes = [
     
     {path: 'section', component: SectionsComponent,
   children : [
-   // {path: '', component: HomeComponent },
+     {path: 'home', component: HomeComponent },
+   {path: 'accueil', component: HomeComponent },
     {path: 'demarche', component: DemarcheComponent },
+    {path: 'actualite', component: ActualiteComponent },
+   {path: 'contact', component: ContactComponent },
   ],
  },
-   // {path: '', component: HomeComponent },
-  //  {path: 'accueil', component: HomeComponent },
-   // {path: 'demarche', component: DemarcheComponent },
-  //  {path: 'actualite', component: ActualiteComponent },
-  // {path: 'contact', component: ContactComponent },
+
   ],
 },
     
