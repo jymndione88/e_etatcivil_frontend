@@ -1,0 +1,46 @@
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">Liste des types de commune</h3>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+      <div class="row">
+        <div class="col-sm-6"></div>
+        <div class="col-sm-6"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <table datatable [dtOptions]="dtOptions" id="table" class="table table-bordered table-striped table-hover dataTable" role="grid" aria-describedby="example2_info">
+            <thead>
+              <tr role="row">
+                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Code</th>
+                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Type</th>
+                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Actions</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let td of service.list" role="row" class="odd">
+                <td (click)="populateTypedeclaration(td)">{{ td.code }}</td>
+                <td (click)="populateTypedeclaration(td)">{{ td.type }}</td>
+                <td>
+                  <a class="link-black text-sm"
+                  mwlConfirmationPopover
+      [popoverTitle]="popoverTitle"
+      [popoverMessage]="popoverMessage"
+      placement="left"
+      (confirm)="deleteTypedeclaration(td.id)"
+      (cancel)="cancelClicked = true" ><i class="fa fa-fw fa-trash-o margin-r-5"></i> </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- /.box-body -->
+</div>
+

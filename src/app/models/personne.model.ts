@@ -5,5 +5,7 @@ export class Personne {
     prenom: string;
     datenaiss: Date;
     lieunaiss: string;
-
+    tel: number;
+    adresse: string;
+    NIN: number;
 }

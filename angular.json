@@ -38,7 +38,8 @@
 
             "src/assets/plugins_admin/fontawesome-free/css/all.min.css",
             "src/assets/plugins_admin/overlayScrollbars/css/OverlayScrollbars.min.css",
-            "src/assets/dist/css/adminlte.min.css"
+            "src/assets/dist/css/adminlte.min.css",
+            "src/assets/plugins_admin/font-awesome/css/font-awesome.min.css"
              
             ],
             "scripts": [

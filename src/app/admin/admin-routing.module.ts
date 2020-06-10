@@ -18,31 +18,7 @@ import { LoginAdminComponent } from './layouts-admin/login-admin/login-admin.com
 const routes: Routes = [
 
   {path: 'admin', redirectTo: 'loginadmin', pathMatch: 'full'},
-  {path: 'admin', component: AdminComponent,
-  children : [
-   {path: 'layoutadmin', component: LayoutsAdminComponent,
-   children : [
-    {path: 'headeradmin', component: HeaderAdminComponent},
-    {path: 'sidebaradmin', component: SidebarAdminComponent},
-    {path: 'settingsadmin', component: SettingsAdminComponent},
-    {path: 'homeadmin', component: HomeAdminComponent},
-    {path: 'footeradmin', component: FooterAdminComponent},
-    {path: 'loginadmin', component: LoginAdminComponent},
-  ],
-  },
-   {path: 'composant', component: ComposantsComponent,
-   children : [
-    {path: 'typedeclaration', component: TypeDeclarationComponent,
-    children : [
-      {path: 'tdeclarationadd', component: TdeclarationAddComponent},
-      {path: 'tdeclarationlist', component: TdeclarationListComponent},
-   ],
-   },
-  ],
-  },
- ],
-},
-    
+  
 ];
 
 @NgModule({

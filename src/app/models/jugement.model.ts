@@ -3,6 +3,7 @@ export class Jugement {
     id: number;
     numero: string;
     date: Date;
-    piece_jointe: string;
+    lieu: string;
+    piece_jointe?: string;
 
 }

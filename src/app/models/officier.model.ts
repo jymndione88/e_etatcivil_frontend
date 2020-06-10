@@ -4,8 +4,8 @@ export class Officier {
     matricule: string;
     login: string;
     password: string;
-    id_personne: number;
-    id_etatCivil: number;
-    id_roleOfficier: number;
+    idPersonne: number;
+    idEtatCivil: number;
+    idRoleOfficier: number;
 
 }

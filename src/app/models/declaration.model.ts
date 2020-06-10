@@ -1,12 +1,13 @@
+import {Internaute} from './internaute.model';
+import {Officier} from './officier.model';
+
 export class Declaration {
     
     id: number;
     numero: string;
     date: Date;
-    mention_marginal: string;
-    id_declarant: number;
-    id_officier: number;
-    id_typeDeclaration: number;
-    id_jugement: number;
+    qualiteDeclarant: string;
+    idInternaute: Internaute;
+    idOfficier: Officier;
 
 }

@@ -9,15 +9,20 @@ import { HeaderComponent } from './user/layouts/header/header.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { LoginAppComponent } from './login-app/login-app.component';
 
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http'; 
-
 import {  FormsModule } from '@angular/forms';
+import { ToastrModule } from "ng6-toastr-notifications";
+import { ConfirmationPopoverModule } from "angular-confirmation-popover";
+import { DataTablesModule } from "angular-datatables";
 
 import { AdminRoutingModule } from './admin/admin-routing.module';
 import { UserRoutingModule } from './user/user-routing.module';
@@ -36,7 +41,17 @@ import { LayoutsAdminComponent } from './admin/layouts-admin/layouts-admin.compo
 import { SettingsAdminComponent } from './admin/layouts-admin/settings-admin/settings-admin.component';
 import { LoginAdminComponent } from './admin/layouts-admin/login-admin/login-admin.component';
 import { LayoutsAdminRoutingModule } from './admin/layouts-admin/layouts-admin-routing.module';
-
+import { TypeEtatcivilComponent } from './admin/composants/type-etatcivil/type-etatcivil.component';
+import { TetatcivilAddComponent } from './admin/composants/type-etatcivil/tetatcivil-add/tetatcivil-add.component';
+import { TetatcivilListComponent } from './admin/composants/type-etatcivil/tetatcivil-list/tetatcivil-list.component';
+import { TypeCommuneComponent } from './admin/composants/type-commune/type-commune.component';
+import { TcommuneAddComponent } from './admin/composants/type-commune/tcommune-add/tcommune-add.component';
+import { TcommuneListComponent } from './admin/composants/type-commune/tcommune-list/tcommune-list.component';
+import { DeclarationNaissanceComponent } from './admin/composants/declaration-naissance/declaration-naissance.component';
+import { DeclarationDecesComponent } from './admin/composants/declaration-deces/declaration-deces.component';
+import { DemandeNaissanceComponent } from './admin/composants/demande-naissance/demande-naissance.component';
+import { DemandeMariageComponent } from './admin/composants/demande-mariage/demande-mariage.component';
+import { DemandeDecesComponent } from './admin/composants/demande-deces/demande-deces.component';
 
 @NgModule({
   declarations: [
@@ -65,19 +80,40 @@ import { LayoutsAdminRoutingModule } from './admin/layouts-admin/layouts-admin-r
     LayoutsAdminComponent,
     SettingsAdminComponent,
     LoginAdminComponent,
+    TypeEtatcivilComponent,
+    TetatcivilAddComponent,
+    TetatcivilListComponent,
+    TypeCommuneComponent,
+    TcommuneAddComponent,
+    TcommuneListComponent,
+    DeclarationNaissanceComponent,
+    DeclarationDecesComponent,
+    DemandeNaissanceComponent,
+    DemandeMariageComponent,
+    DemandeDecesComponent,
 
   ],
   imports: [
+    CommonModule,
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
     FormsModule,
+    RouterModule,
 
     AdminRoutingModule,
     UserRoutingModule,
     LoginAdminRoutingModule,
     LayoutsAdminRoutingModule,
+
+    ToastrModule.forRoot(),
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: "danger",
+      cancelText: "Annuler",
+      confirmText: "Supprimer"
+    }),
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

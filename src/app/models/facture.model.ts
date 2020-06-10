@@ -5,7 +5,7 @@ export class Facture {
     montant: number;
     remise: number;
     tva: number;
+    etat: string;
     id_demande: number;
-    id_etatFacture: number;
 
 }

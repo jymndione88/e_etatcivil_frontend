@@ -1,8 +1,7 @@
-export class Type_declaration {
+export class TypeDeclarations {
     
     id: number;
+    code: string;
     type: string;
-
-    
 
 }
