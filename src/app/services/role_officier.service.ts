@@ -2,6 +2,9 @@ import { Role_officer } from '../models/role_officier.model';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { from, Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +20,14 @@ export class Role_officerService {
     readonly serverUrl = environment.apiURL + "/Role_officer";
 
   loadListeRole_officer() {
-    return this.http.get(this.serverUrl)
-      .toPromise()
-      .then(res => this.list = res as Role_officer[]);
+    return this.http.get(this.serverUrl).
+    pipe(
+       map((data: Role_officer[]) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
   getRole_officerBytype(id_type: number) {

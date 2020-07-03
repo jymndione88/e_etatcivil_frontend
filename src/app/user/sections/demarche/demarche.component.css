@@ -1,2 +1,25 @@
 .panel-title {display: inline;font-weight: bold;}
 .img{ width: 50px; }
+
+#stepwizard {
+    height: 500px;
+    overflow-y: scroll;
+}
+
+#stepwizard1 {
+    height: 500px;
+    overflow-y: scroll;
+}
+#stepwizard2 {
+    height: 500px;
+    overflow-y: scroll;
+}
+#stepwizard3 {
+    height: 500px;
+    overflow-y: scroll;
+}
+
+#stepwizard4 {
+    height: 500px;
+    overflow-y: scroll;
+}

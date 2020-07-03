@@ -2,6 +2,9 @@ import { Etat_civil } from '../models/etat_civil.model';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { from, Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +20,14 @@ export class Etat_civilService {
     readonly serverUrl = environment.apiURL + "/Etat_civil";
 
   loadListeEtat_civil() {
-    return this.http.get(this.serverUrl)
-      .toPromise()
-      .then(res => this.list = res as Etat_civil[]);
+    return this.http.get(this.serverUrl).
+    pipe(
+       map((data: Etat_civil[]) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
   getEtat_civilBytype(id_type: number) {

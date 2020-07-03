@@ -1,5 +1,6 @@
 import {Jugement} from './jugement.model';
 import {Declaration} from './declaration.model';
+import {Lieu_hospitalier} from './lieu_hospitalier.model';
 
 export class Naissance {
     
@@ -7,16 +8,16 @@ export class Naissance {
     genre: string;
     nom: string;
     prenom: string;
-    datenais: Date;
-    lieunaiss: string;
+    datenaiss: Date;
     heurenaiss: Date;
-    nom_pere: string;
-    prenom_pere: string;
-    nom_mere: string;
-    prenom_mere: string;
-    mention_marginal: string;
+    nomPere: string;
+    prenomPere: string;
+    nomMere: string;
+    prenomMere: string;
+    mentionMarginal: string;
 
     idJugement: Jugement;
     idDeclaration: Declaration;
+    idLieuHospitalier: Lieu_hospitalier;
 
 }

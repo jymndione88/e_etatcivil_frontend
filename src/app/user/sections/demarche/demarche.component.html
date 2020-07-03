@@ -19,19 +19,19 @@
 				<div class="listing">
 					<div class="listing_image">
 						<div class="listing_image_container">
-							<img src="./../../assets/images/extrait_naissance.png" alt="">
+							<img height="300" src="./../../assets/images/extrait_naissance.png" alt="">
 						</div>
 						<div
 							class="listing_small_tags d-flex flex-row align-items-start justify-content-start flex-wrap">
 							<div class="listing_small_tag tag_house"><a href="#" data-toggle="modal"
-									data-target="#stepModalForm">Naissance</a></div>
+									data-target="#choixNaissanceModalForm">Naissance</a></div>
 						</div>
 					</div>
 					<div class="listing_content">
 						<div
 							class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
 							<img src="./../../assets/images/icon_1.png" alt="">
-							<a href="#" data-toggle="modal" data-target="#stepModalForm">L'extrait du registre des actes
+							<a href="#" data-toggle="modal" data-target="#choixNaissanceModalForm">L'extrait du registre des actes
 								de naissance est la reproduction de l’acte de naissance ...</a>
 						</div>
 
@@ -44,11 +44,11 @@
 				<div class="listing">
 					<div class="listing_image">
 						<div class="listing_image_container">
-							<img src="./../../assets/images/certificat_mariage.jpg" alt="">
+							<img height="300" src="./../../assets/images/certificat_mariage.jpg" alt="">
 							<div
 								class="listing_small_tags d-flex flex-row align-items-start justify-content-start flex-wrap">
 								<div class="listing_small_tag tag_house"><a href="#" data-toggle="modal"
-										data-target="#stepModalForm">Mariage</a></div>
+										data-target="#modalDemandeMariage">Mariage</a></div>
 							</div>
 						</div>
 					</div>
@@ -56,8 +56,8 @@
 						<div
 							class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
 							<img src="./../../assets/images/icon_1.png" alt="">
-							<a href="#" data-toggle="modal" data-target="#stepModalForm">La copie littérale d'acte de
-								mariage est la reproduction intégrale de l'acte originel de mariage ...</a>
+							<a href="#" data-toggle="modal" data-target="#modalDemandeMariage">La copie littérale d'acte de
+								mariage est la reproduction de l'acte originel de mariage ...</a>
 						</div>
 
 					</div>
@@ -70,11 +70,11 @@
 				<div class="listing">
 					<div class="listing_image">
 						<div class="listing_image_container">
-							<img src="./../../assets/images/bulletin_deces.jpg" alt="">
+							<img height="300" src="./../../assets/images/bulletin_deces.jpg" alt="">
 							<div
 								class="listing_small_tags d-flex flex-row align-items-start justify-content-start flex-wrap">
 								<div class="listing_small_tag tag_house"><a href="#" data-toggle="modal"
-										data-target="#stepModalForm">Décès</a></div>
+										data-target="#choixDecesModalForm">Décès</a></div>
 							</div>
 						</div>
 					</div>
@@ -82,7 +82,7 @@
 						<div
 							class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
 							<img src="./../../assets/images/icon_1.png" alt="">
-							<a href="#" data-toggle="modal" data-target="#stepModalForm">L'extrait du registre des actes
+							<a href="#" data-toggle="modal" data-target="#choixDecesModalForm">L'extrait du registre des actes
 								de décès est la reproduction intégrale de l’acte de décès ...</a>
 						</div>
 
@@ -95,18 +95,18 @@
 </div>
 
 
-<!-- Modal -->
-<form  id="myForm" role="form" data-toggle="validator">
+<!-- Modal demande naissance-->
+<form  id="myForm" role="form" data-toggle="validator" #form="ngForm" (submit)="onSubmit(form, 'demnaissance')" >
 
-	<div class="modal fade" id="stepModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+	<div class="modal fade" id="modalDemandeNaissance" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 		aria-hidden="true">
 		<div class="modal-dialog modal-lg">
 
 			<div class="modal-content">
 
 				<div class="modal-header">
-					<h5 class="modal-title">Naissance</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<h5 class="modal-title">Demande acte naissance</h5>
+					<button #closeModal (click)="hideModel();" type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -159,7 +159,7 @@
 										<select id="commune" name="commune" [(ngModel)]="commune"
 											class="form-control text-dark" required>
 											<option disabled selected value> -- séléctionner -- </option>
-											<option *ngFor="let com of service.list" [ngValue]="com.libelle"
+											<option *ngFor="let com of listCommune" [ngValue]="com.libelle"
 												value="{{com.id}}">
 												{{com.libelle}}</option>
 										</select>
@@ -168,41 +168,13 @@
 									</div>
 								</div>
 
-
-
-
-								<!--	
-									  <div class="form-group">
-										<label for="exampleInputPassword1">Password</label>
-										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-									  </div>
-									  <div class="custom-control custom-checkbox">
-											<input type="checkbox" class="custom-control-input" id="customCheck1">
-											<label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
-										  </div>
-										  <br/>
-
-										  <input class="form-control" type="text" placeholder="Default input">
-										  <br/>
-
-										  <div class="custom-file">
-												<input type="file" class="custom-file-input" id="customFile">
-												<label class="custom-file-label" for="customFile">Choose file</label>
-											  </div>
-										<br/>	  
-										  
-										  
-											  <label for="customRange1">Example range</label>
-												<input type="range" class="custom-range" id="customRange1">
-												<br/> -->
-
 							</div>
 							<div id="step2">
 								<div id="form-step-1" role="form" data-toggle="validator">
 									<div class="form-group">
 										Type d'acte
 										<hr>
-										La commune : ..... n’est pas en mesure de recevoir votre demande d’acte d’état
+										La commune : {{commune}} n’est pas en mesure de recevoir votre demande d’acte d’état
 										civil de
 										manière dématérialisée. Vous pouvez cependant compléter le formulaire de demande
 										d’acte,
@@ -211,18 +183,6 @@
 										l’expédier par courrier postal à l’adresse de la commune. Le document demandé
 										vous sera
 										expédié en retour par courrier postal.
-									</div>
-									<div class="form-group">
-										<label for="typ_decla">Type d’acte</label>
-										<select id="typ_decla" name="typ_decla" [(ngModel)]="type"
-											class="form-control text-dark" required>
-											<option value="" disabled selected> -- séléctionner -- </option>
-											<option *ngFor="let typ_decla of ser_typ_decla.list"
-												[ngValue]="typ_decla.type" value="{{typ_decla.id}}">
-												{{typ_decla.type}}</option>
-										</select>
-										<div class="help-block with-errors text-danger"></div>
-										<br />
 									</div>
 
 									<div class="form-group">
@@ -320,52 +280,42 @@
 												<div class="help-block with-errors text-danger"></div>
 											</div>
 											<div class="col">
-												<label for="date">Date de naissance</label>
-												<div id="datenaiss" class="input-daterange">
-													<input [(ngModel)]="datenaiss" name="datenaiss" type="text"
-														class="form-control text-dark" required />
-													<div class="help-block with-errors text-danger"></div>
-												</div>
+												<label for="datenaiss">Date de naissance</label>
+												<input class="form-control text-dark" required type="date"
+												name="datenaiss" [(ngModel)]="datenaiss" id='datenaiss' />
 											</div>
 										</div>
 										<br />
 
-
 										<hr>
-										Filiation paternelle
+										Position géographique du demandeur
 										<hr>
 										<div class="row">
 											<div class="col">
-												<label for="nom_pere">Nom</label>
-												<input type="text" [(ngModel)]="nom_pere" name="nom_pere"
-													class="form-control text-dark" required>
+												<label for="pays">Pays</label>
+												<select  id="paysA" name="paysA" [(ngModel)]="paysA" placeholder="Pays"
+											class="form-control text-dark" required>
+											<option disabled selected value=""> -- séléctionner -- </option>
+											<option value="France">France</option>
+											<option value="Togo">Togo</option>
+											<option value="Allemagne">Allemagne</option>
+											<option value="Belgique">Belgique</option>
+											<option value="Guinée Bissau">Guinée Bissau</option>
+											<option value="Mali">Mali</option>
+											<option value="Cameroun">Cameroun</option>
+										</select>
 												<div class="help-block with-errors text-danger"></div>
 											</div>
 											<div class="col">
-												<label for="prenom_pere">Prénoms</label>
-												<input type="text" [(ngModel)]="prenom_pere" name="prenom_pere"
+												<label for="nationalite">Nationalité</label>
+												<input type="text" [(ngModel)]="nationalite" name="nationalite"
 													class="form-control text-dark" required>
 												<div class="help-block with-errors text-danger"></div>
 											</div>
 										</div>
 
 										<hr>
-										Filiation maternelle
-										<hr>
-										<div class="row">
-											<div class="col">
-												<label for="nom_mere">Nom</label>
-												<input type="text" [(ngModel)]="nom_mere" name="nom_mere"
-													class="form-control text-dark" required>
-												<div class="help-block with-errors text-danger"></div>
-											</div>
-											<div class="col">
-												<label for="prenom_mere">Prénoms</label>
-												<input type="text" [(ngModel)]="prenom_mere" name="prenom_mere"
-													class="form-control text-dark" required>
-												<div class="help-block with-errors text-danger"></div>
-											</div>
-										</div>
+									
 									</div>
 								</div>
 							</div>
@@ -397,7 +347,7 @@
 										<hr>
 										<div class="row">
 											<div class="col">
-												Type d'acte: {{type}}
+												Type d'acte: Naissance
 											</div>
 											<div class="col">
 												Qualité du demandeur: {{qualite}}
@@ -438,15 +388,444 @@
 										</div>
 										<div class="row">
 											<div class="col">
+												Position géographique du demandeur
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Pays : {{pays}}
+											</div>
+											<div class="col">
+												Nationalité: {{nationalite}}
+											</div>
+										</div>
+										
+									</div>
+
+									<div class="row">
+										<div class="col">
+											<h3 class="panel-title">
+												Adresse réception de l'acte
+											</h3>
+											<br />
+
+											<label for="reception">Comment voulez-vous recevoir l'acte ?</label>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="courrier()" [(ngModel)]="reception" type="radio"  name="reception" id="reception1"
+													value="courrier" class="custom-control-input">
+												<label class="custom-control-label" for="reception1">Par Courrier</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="email()" [(ngModel)]="reception" type="radio" name="reception" id="reception2"
+												value="email" class="custom-control-input">
+												<label class="custom-control-label" for="reception2">Par Email</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="presence()" [(ngModel)]="reception" type="radio" name="reception" id="reception3"
+												value="presence" class="custom-control-input">
+												<label class="custom-control-label" for="reception3"> physique</label>
+											</div>
+											<br />
+										
+											<input *ngIf="isCourrier" placeholder="Adresse" type="text" [(ngModel)]="adresse" class="form-control text-dark" id="adresse" name="adresse"   />
+											<br />
+											<input *ngIf="isCourrier" placeholder="Boite postal" type="text" [(ngModel)]="postal" class="form-control text-dark" id="postal" name="postal" />
+											<br />
+										<select *ngIf="isCourrier" id="pays" name="pays" [(ngModel)]="pays" placeholder="Pays"
+											class="form-control text-dark" required>
+											<option disabled selected value=""> -- séléctionner -- </option>
+											<option value="France">France</option>
+											<option value="Togo">Togo</option>
+											<option value="Allemagne">Allemagne</option>
+											<option value="Belgique">Belgique</option>
+											<option value="Guinée Bissau">Guinée Bissau</option>
+											<option value="Mali">Mali</option>
+											<option value="Cameroun">Cameroun</option>
+										</select>
+										
+											<input *ngIf="isMail" [(ngModel)]="emailReception"  name="emailReception" id="emailReception" class="form-control text-dark" 
+											type="email" placeholder="Enter email">
+												
+										</div>
+
+										<div class="col">
+											<form  id="myForma" role="forma" #forma="ngForm" (submit)="payer(forma, 'demnaissane')" >
+
+											<h3 class="panel-title">
+												Details Paiement
+											</h3>
+											<br />
+											<img class="img" src="assets/images/paydunya.png" />
+											<img class="img" src="assets/images/orange.jpg" />
+											<img class="img" src="assets/images/mastercard.jpg" />
+											<br />
+											
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="paydunya()" [(ngModel)]="paiement" type="radio"  name="paiement" id="paiement1"
+													value="paydunya" class="custom-control-input">
+												<label class="custom-control-label" for="paiement1">Paydunya</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="orange()" [(ngModel)]="paiement" type="radio" name="paiement" id="paiement2"
+												value="orange" class="custom-control-input">
+												<label class="custom-control-label" for="paiement2">Orange money</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="carte()" [(ngModel)]="paiement" type="radio" name="paiement" id="paiement3"
+												value="carte" class="custom-control-input">
+												<label class="custom-control-label" for="paiement3">Carte</label>
+											</div>
+											<br />
+
+											<input type="text" value="750 FCFA" [(ngModel)]="montantPaiement" class="form-control text-dark" id="montantPaiement" name="montantPaiement" readonly />
+											<br />
+												<input *ngIf="isPaydunya" [(ngModel)]="paydunyemail" type="email"  name="paydunyemail" id="paydunyemail"
+													placeholder="Entrer email" class="form-control text-dark">
+													<div class="help-block with-errors text-danger"></div>
+													<br />
+												<input *ngIf="isPaydunya" [(ngModel)]="paydunyapassword" type="password"  name="paydunyapassword" id="paydunyapassword"
+												placeholder="Entrer password" class="form-control text-dark">
+												<div class="help-block with-errors text-danger"></div>
+												
+											<input *ngIf="isOrange" type="text" [(ngModel)]="nomPaiement" class="form-control text-dark"  id="nomPaiement" name="nomPaiement" placeholder="Nom" />
+											<div class="help-block with-errors text-danger"></div>
+											<br />
+											<input *ngIf="isOrange" type="number" [(ngModel)]="telPaiement" class="form-control text-dark" id="telPaiement" name="telPaiement" placeholder="Numéro de téléphone"   />
+											<div class="help-block with-errors text-danger"></div>
+
+											<br />
+											<div><input type="submit" value="Payer" class="btn btn-primary btn-lg btn-block" /></div>
+											
+											</form>
+										</div>
+
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div style="margin-left: 20;"><input type="submit" value="Valider" class="btn btn-success btn-block" /></div>
+				</div>
+				
+			</div>
+		</div>
+
+	</div>
+
+</form>
+<!-- Modal -->
+
+<!-- Modal declaration naissance-->
+<form  id="myForm1" role="form1" data-toggle="validator" #form1="ngForm" (submit)="onSubmit(form1, 'decnaissance')" >
+
+	<div class="modal fade" id="modalDeclarationNaissance" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h5 class="modal-title">Déclaration de naissance</h5>
+					<button #closeModal (click)="hideModel();" type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div lass="modal-body mt-5 mb-5">
+					<div id="stepwizard1">
+						<ul>
+							<li><a href="#step1">Rechercher commune<br /> <small>Nature declaration</small> </a></li>
+							<li><a href="#step2">Identification<br /> <small> Numéro registre</small> </a></li>
+							<li><a href="#step3">Jugement<br /> <small> Tribunal</small> </a></li>
+							<li><a href="#step4">Récapitulatif et envoi<br /> <small> Mode envoi</small> </a></li>
+						</ul>
+
+						<div>
+							<div id="step1">
+								<div class="form-group">
+									Rechercher Commune
+									<hr>
+									Vous souhaitez déclarer une enfant
+									née au Sénégal.Vous pouvez effectuer la déclarartion en ligne auprès de la commune
+									concernée. Suivant la commune, vous la transmettrez de façon électronique ou par
+									courrier postal. Votre commune vous expédiera le document demandé par courrier
+									postal.
+									Ce service est ouvert exclusivement aux particuliers.
+								</div>
+
+								<div id="form1-step-0" role="form" data-toggle="validator">
+							
+									<div class="form-group">
+										<label for="commune1">Commune concernée par l’acte</label>
+										<select id="commune1" name="commune1" [(ngModel)]="commune1"
+											class="form-control text-dark" required>
+											<option disabled selected value> -- séléctionner -- </option>
+											<option *ngFor="let com of listCommune" [ngValue]="com.libelle"
+												value="{{com.id}}">
+												{{com.libelle}}</option>
+										</select>
+										<div class="help-block with-errors text-danger"></div>
+										<br />
+									</div>
+
+									<div class="form-group">
+										<label for="qualite1">Qualité du déclarant</label>
+										<select id="qualite1" name="qualite1" [(ngModel)]="qualite1"
+											class="form-control text-dark" required>
+											<option disabled selected value> -- séléctionner -- </option>
+											<option value="La personne concernée par l'acte">La personne concernée par
+												l'acte</option>
+											<option value="Son pére ou sa mère">Son pére ou sa mère</option>
+											<option value="Son conjoint ou sa conjointe">Son conjoint ou sa conjointe
+											</option>
+											<option value="Son fils ou sa fille">Son fils ou sa fille</option>
+											<option value="Son représentant légal">Son représentant légal</option>
+											<option value="Autre">Autre</option>
+										</select>
+										<div class="help-block with-errors text-danger"></div>
+										<br />
+									</div>
+
+								</div>
+
+							</div>
+						
+							<div id="step2">
+
+								<div class="form-group">
+									Identification
+									<hr>
+								</div>
+
+								<div id="form1-step-1" role="form" data-toggle="validator">
+									<div class="form-group">
+
+										<div>
+											<label for="identite">Identité de l'enfant et des parents faisant l'objet de la
+												declaration</label>
+										</div>
+										<div class="custom-control custom-radio custom-control-inline">
+											<input  [(ngModel)]="genre1" checked type="radio" id="genre11" name="genre1"
+												value="M" class="custom-control-input">
+											<label class="custom-control-label" for="genre11">Masculin</label>
+										</div>
+										<div class="custom-control custom-radio custom-control-inline">
+											<input  [(ngModel)]="genre1" type="radio" id="genre12" name="genre1" value="F"
+												class="custom-control-input">
+											<label class="custom-control-label" for="genre12">Feminin</label>
+										</div>
+
+										<div class="row">
+											<div class="col">
+												<label for="nom1">Nom</label>
+												<input [(ngModel)]="nom1" type="text" name="nom1"
+													class="form-control text-dark" required>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+											<div class="col">
+												<label for="prenom1">Prénoms</label>
+												<input [(ngModel)]="prenom1" type="text" name="prenom1"
+													class="form-control text-dark" required>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												<label for="datenaiss1">Date de naissance</label>
+												<input class="form-control text-dark" required type="date"
+												name="datenaiss1" [(ngModel)]="datenaiss1" id='datenaiss1' />
+											</div>
+											<div class="col">
+												<label for="lieunaiss1">Lieu de naissance</label>											
+												<select id="lieunaiss1" name="lieunaiss1" [(ngModel)]="lieunaiss1"
+												class="form-control text-dark" required>
+												<option disabled selected value> -- séléctionner -- </option>
+												<option *ngFor="let com of listHospitalier" [ngValue]="com.id"
+													value="{{com.id}}">
+													{{com.libelle}}</option>
+											</select>
+													
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												<label for="heurenaiss1">Heure de naissance</label>
+													<input class="form-control text-dark" required type="time"
+													name="heurenaiss1" [(ngModel)]="heurenaiss1" id='heurenaiss1' />
+											</div>
+											<div class="col">
+												<label for="mention1">Mention marginal</label>											
+													<input [(ngModel)]="mention1" name="mention1" type="text"
+														class="form-control text-dark" />
+													<div class="help-block with-errors text-danger"></div>
+											</div>
+										</div>
+
+
+										<br />
+
+
+										<hr>
+										Filiation paternelle
+										<hr>
+										<div class="row">
+											<div class="col">
+												<label for="nom_pere1">Nom</label>
+												<input type="text" [(ngModel)]="nom_pere1" name="nom_pere1"
+													class="form-control text-dark" required>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+											<div class="col">
+												<label for="prenom_pere1">Prénoms</label>
+												<input type="text" [(ngModel)]="prenom_pere1" name="prenom_pere1"
+													class="form-control text-dark" required>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+										</div>
+
+										<hr>
+										Filiation maternelle
+										<hr>
+										<div class="row">
+											<div class="col">
+												<label for="nom_mere1">Nom</label>
+												<input type="text" [(ngModel)]="nom_mere1" name="nom_mere1"
+													class="form-control text-dark" required>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+											<div class="col">
+												<label for="prenom_mere1">Prénoms</label>
+												<input type="text" [(ngModel)]="prenom_mere1" name="prenom_mere1"
+													class="form-control text-dark" required>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div id="step3">
+								<div class="form-group">
+									Jugement suppletif
+									<hr>
+								</div>
+
+								<div id="form1-step-2" role="form" data-toggle="validator">
+
+									<div class="row">
+										<div class="col">
+											<label for="numjugement1">Numero jugement</label>
+											<input [(ngModel)]="numjugement1" type="number" name="numjugement1"
+												class="form-control text-dark" >
+											<div class="help-block with-errors text-danger"></div>
+										</div>
+										<div class="col">
+											<label for="anneejugement1">Année</label>
+											<input [(ngModel)]="anneejugement1" type="number" name="anneejugement1"
+												class="form-control text-dark" >
+											<div class="help-block with-errors text-danger"></div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col">
+											<label for="datejugement1">Date</label>
+											<input class="form-control text-dark"  type="date"
+											name="datejugement1" [(ngModel)]="datejugement1" id='datejugement1' />
+										</div>
+										<div class="col">
+											<label for="tribunal1">Tribunal</label>
+											<input [(ngModel)]="tribunal1" type="text" name="tribunal1"
+												class="form-control text-dark" >
+											<div class="help-block with-errors text-danger"></div>
+										</div>
+									</div><div class="row">
+										<div class="col">
+											<label for="piece1">Piéce jsutificatif</label>
+											<div class="input-group">
+												<div class="input-group-prepend">
+												  <span class="input-group-text" id="piece1">Télécharger</span>
+												</div>
+												<div class="custom-file">
+												  <input type="file" class="custom-file-input" id="piece1" name="piece1"
+												  [(ngModel)]="piece1" aria-describedby="piece1">
+												  <label class="custom-file-label" for="piece1">Choisir fichier</label>
+												</div>
+											  </div>
+										</div>
+										
+									</div>
+
+								</div>
+
+							</div>
+
+							<div id="step4">
+								<div class="form-group">
+									Récapitulatif et envoi
+									<hr>
+									Votre démarche est bientôt terminée.
+									Veuillez vérifier l’exactitude des informations que vous avez communiquées. Vous
+									pouvez les modifier le cas échéant en cliquant sur le bouton «Précedent».
+								</div>
+
+								<div id="form1-step-3" role="form" data-toggle="validator">
+									Rechercher commune
+									<hr>
+									<div class="form-group">
+										<div class="row">
+											<div class="col">
+												Commune concernée: {{commune1}}
+											</div>
+										</div>
+										<hr>
+
+										Type de déclaration
+										<hr>
+										<div class="row">
+											<div class="col">
+												Type de déclaration: Naissance
+											</div>
+											<div class="col">
+												Qualité du déclarant: {{qualite1}}
+											</div>
+										</div>
+										
+										<hr>
+
+										Identification
+										<hr>
+										<div class="row">
+											<div class="col">
+												Civilité: {{genre1}}
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Nom: {{nom1}}
+											</div>
+											<div class="col">
+												Prénoms: {{prenom1}}
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Date de naissance: {{datenaiss1}}
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
 												Filiation paternelle
 											</div>
 										</div>
 										<div class="row">
 											<div class="col">
-												Nom : {{nom_pere}}
+												Nom : {{nom_pere1}}
 											</div>
 											<div class="col">
-												Prénoms: {{prenom_pere}}
+												Prénoms: {{prenom_pere1}}
 											</div>
 										</div>
 										<div class="row">
@@ -456,10 +835,10 @@
 										</div>
 										<div class="row">
 											<div class="col">
-												Nom: {{nom_mere}}
+												Nom: {{nom_mere1}}
 											</div>
 											<div class="col">
-												Prénoms: {{prenom_mere}}
+												Prénoms: {{prenom_mere1}}
 											</div>
 										</div>
 
@@ -474,25 +853,29 @@
 											</h3>
 											<br />
 
-											<label for="reception">L'adresse de réception de l'acte est-elle au Sénégal ?</label>
+											<label for="reception1">Comment voulez-vous recevoir l'acte ?</label>
 											<div class="custom-control custom-radio custom-control-inline">
-												<input [(ngModel)]="reception" checked type="radio" id="reception1" name="reception"
-													value="Oui" class="custom-control-input">
-												<label class="custom-control-label" for="reception1">Oui</label>
+												<input (click)="courrier()" [(ngModel)]="reception1" type="radio"  name="reception1" id="reception11"
+													value="courrier" class="custom-control-input">
+												<label class="custom-control-label" for="reception11">Par Courrier</label>
 											</div>
 											<div class="custom-control custom-radio custom-control-inline">
-												<input [(ngModel)]="reception" type="radio" id="reception2" name="reception" value="Non"
-													class="custom-control-input">
-												<label class="custom-control-label" for="reception2">Non</label>
+												<input (click)="email()" [(ngModel)]="reception1" type="radio" name="reception1" id="reception12"
+												value="email" class="custom-control-input">
+												<label class="custom-control-label" for="reception12">Par Email</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="presence()" [(ngModel)]="reception1" type="radio" name="reception1" id="reception13"
+												value="presence" class="custom-control-input">
+												<label class="custom-control-label" for="reception13"> physique</label>
 											</div>
 											<br />
-											<label for="adresse">Adresse</label>
-											<input type="text"  [(ngModel)]="adresse" class="form-control text-dark" id="adresse" name="adresse"   />
-											<label for="postal">Boite postal</label>
-											<input type="text"  [(ngModel)]="postal" class="form-control text-dark" id="postal" name="postal" />
-											
-											<label for="motif">Pays</label>
-										<select id="pays" name="pays" [(ngModel)]="pays"
+										
+											<input *ngIf="isCourrier" placeholder="Adresse" type="text" [(ngModel)]="adresse1" class="form-control text-dark" id="adresse1" name="adresse1"   />
+											<br />
+											<input *ngIf="isCourrier" placeholder="Boite postal" type="text" [(ngModel)]="postal1" class="form-control text-dark" id="postal1" name="postal1" />
+											<br />
+										<select *ngIf="isCourrier" id="pays1" name="pays1" [(ngModel)]="pays1" placeholder="Pays"
 											class="form-control text-dark" required>
 											<option disabled selected value=""> -- séléctionner -- </option>
 											<option value="France">France</option>
@@ -503,32 +886,955 @@
 											<option value="Mali">Mali</option>
 											<option value="Cameroun">Cameroun</option>
 										</select>
-										<div class="help-block with-errors text-danger"></div>
+										
+											<input *ngIf="isMail" [(ngModel)]="emailReception1"  name="emailReception1" id="emailReception1" class="form-control text-dark" 
+											type="email" placeholder="Enter email">
+												
+										</div>
 
-												<label for="email">Email addresse</label>
-												<input [(ngModel)]="email" name="email" class="form-control text-dark" type="email" id="email" placeholder="Enter email">
-												<div class="help-block with-errors text-danger"></div>
-											</div>
 										<div class="col">
+											<form  id="myForm1a" role="form1a" #form1a="ngForm" (submit)="payer(form1a, 'decnaissance')" >
+
 											<h3 class="panel-title">
 												Details Paiement
 											</h3>
+											<br />
+											<img class="img" src="assets/images/paydunya.png" />
 											<img class="img" src="assets/images/orange.jpg" />
-											<img class="img" src="assets/images/free.jpg" />
-											<img class="img" src="assets/images/expresso.jpg" />
+											<img class="img" src="assets/images/mastercard.jpg" />
 											<br />
-											<label for="montant">Montant</label>
-											<input type="text"  [(ngModel)]="montant" class="form-control text-dark" id="montant" name="montant" value="750 FCFA" readonly />
-											<label for="tel">Numéro téléphone</label>
-											<input type="number" [(ngModel)]="tel" class="form-control text-dark" id="tel" name="tel" placeholder="Numéro de téléphone" required autofocus />
+											
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="paydunya()" [(ngModel)]="paiement1" type="radio"  name="paiement1" id="paiement11"
+													value="paydunya" class="custom-control-input">
+												<label class="custom-control-label" for="paiement11">Paydunya</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="orange()" [(ngModel)]="paiement1" type="radio" name="paiement1" id="paiement12"
+												value="orange" class="custom-control-input">
+												<label class="custom-control-label" for="paiement12">Orange money</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="carte()" [(ngModel)]="paiement1" type="radio" name="paiement1" id="paiement13"
+												value="carte" class="custom-control-input">
+												<label class="custom-control-label" for="paiement13">Carte</label>
+											</div>
+											<br />
+
+											<input type="text" value="750 FCFA" [(ngModel)]="montantPaiement1" class="form-control text-dark" id="montantPaiement1" name="montantPaiement1" readonly />
+											<br />
+												<input *ngIf="isPaydunya" [(ngModel)]="paydunyemail1" type="email"  name="paydunyemail1" id="paydunyemail1"
+													placeholder="Entrer email" class="form-control text-dark">
+													<div class="help-block with-errors text-danger"></div>
+													<br />
+												<input *ngIf="isPaydunya" [(ngModel)]="paydunyapassword1" type="password"  name="paydunyapassword1" id="paydunyapassword1"
+												placeholder="Entrer password" class="form-control text-dark">
+												<div class="help-block with-errors text-danger"></div>
+												
+											<input *ngIf="isOrange" type="text" [(ngModel)]="nomPaiement1" class="form-control text-dark"  id="nomPaiement1" name="nomPaiement1" placeholder="Nom" />
+											<div class="help-block with-errors text-danger"></div>
+											<br />
+											<input *ngIf="isOrange" type="number" [(ngModel)]="telPaiement1" class="form-control text-dark" id="telPaiement1" name="telPaiement1" placeholder="Numéro de téléphone"   />
 											<div class="help-block with-errors text-danger"></div>
 
-											<label for="code">Code d'autorisation</label>
-											<input type="password" [(ngModel)]="code" class="form-control text-dark"  id="code" name="code" placeholder="Code" required />
+											<br />
+											<div><input type="submit" value="Payer" class="btn btn-primary btn-lg btn-block" /></div>
+											
+											</form>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div style="margin-left: 20;"><input type="submit" value="Valider" class="btn btn-success btn-block" /></div>
+				</div>
+				
+			</div>
+		</div>
+
+	</div>
+
+</form>
+<!-- Modal -->
+
+<!-- Modal demande mariage-->
+<form  id="myForm2" role="form2" data-toggle="validator" #form2="ngForm" (submit)="onSubmit(form2, 'demmariage')" >
+
+	<div class="modal fade" id="modalDemandeMariage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h5 class="modal-title">Demande acte mariage</h5>
+					<button #closeModal (click)="hideModel();" type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div lass="modal-body mt-5 mb-5">
+					<div id="stepwizard2">
+						<ul>
+							<li><a href="#step1">Rechercher commune<br /> <small>Motif demende</small> </a></li>
+							<li><a href="#step2">Type d'acte<br /> <small> Nature de la demande</small> </a></li>
+							<li><a href="#step3">Identification<br /> <small> Numéro registre</small> </a></li>
+							<li><a href="#step4">Récapitulatif et envoi<br /> <small> Mode envoi</small> </a></li>
+						</ul>
+
+						<div>
+							<div id="step1">
+								<div class="form-group">
+									Rechercher Commune
+									<hr>
+									Vous souhaitez obtenir une copie ou un extrait d'acte d'état civil, pour une
+									personne
+									née eau Sénégal.Vous pouvez effectuer votre demande en ligne auprès de la commune
+									concernée. Suivant la commune, vous la transmettrez de façon électronique ou par
+									courrier postal. Votre commune vous expédiera le document demandé par courrier
+									postal.
+									Ce service est ouvert exclusivement aux particuliers.
+								</div>
+
+								<div id="form2-step-0" role="form" data-toggle="validator">
+									<div class="form-group">
+										<label for="motif2">Motif de la demande</label>
+										<select id="motif2" name="motif2" [(ngModel)]="motif2"
+											class="form-control text-dark" required>
+											<option disabled selected value=""> -- séléctionner -- </option>
+											<option value="Carte national d'identité">Carte national d'identité</option>
+											<option value="Passport">Passport</option>
+											<option value="certificat de nationalité sénégalaise">certificat de
+												nationalité sénégalaise</option>
+											<option value="Mariage">Mariage</option>
+											<option value="Pension">pension</option>
+											<option value="Precédure judiciaire">Precédure judiciaire</option>
+											<option value="Acte de notaire">Acte de notaire</option>
+											<option value="Autre">Autre</option>
+										</select>
+										<div class="help-block with-errors text-danger"></div>
+										<br />
+									</div>
+
+									<div class="form-group">
+										<label for="commune2">Commune concernée par l’acte</label>
+										<select id="commune2" name="commune2" [(ngModel)]="commune2"
+											class="form-control text-dark" required>
+											<option disabled selected value> -- séléctionner -- </option>
+											<option *ngFor="let com of listCommune" [ngValue]="com.id"
+												value="{{com.id}}">
+												{{com.libelle}}</option>
+										</select>
+										<div class="help-block with-errors text-danger"></div>
+										<br />
+									</div>
+								</div>
+
+							</div>
+							<div id="step2">
+								<div id="form2-step-1" role="form" data-toggle="validator">
+									<div class="form-group">
+										Type d'acte
+										<hr>
+										La commune : {{commune2}} n’est pas en mesure de recevoir votre demande d’acte d’état
+										civil de
+										manière dématérialisée. Vous pouvez cependant compléter le formulaire de demande
+										d’acte,
+										à l’issue de la saisie vous pourrez télécharger et imprimer la demande complétée
+										et
+										l’expédier par courrier postal à l’adresse de la commune. Le document demandé
+										vous sera
+										expédié en retour par courrier postal.
+									</div>
+
+									<div class="form-group">
+										<label for="qualite2">Qualité du demandeur</label>
+										<select id="qualite2" name="qualite2" [(ngModel)]="qualite2"
+											class="form-control text-dark" required>
+											<option disabled selected value> -- séléctionner -- </option>
+											<option value="La personne concernée par l'acte">La personne concernée par
+												l'acte</option>
+											<option value="Son pére ou sa mère">Son pére ou sa mère</option>
+											<option value="Son conjoint ou sa conjointe">Son conjoint ou sa conjointe
+											</option>
+											<option value="Son fils ou sa fille">Son fils ou sa fille</option>
+											<option value="Son représentant légal">Son représentant légal</option>
+											<option value="Autre">Autre</option>
+										</select>
+										<div class="help-block with-errors text-danger"></div>
+										<br />
+									</div>
+
+									<div class="form-group">
+										<label for="nature2">Nature de l'acte</label>
+										<select id="nature2" name="nature2" [(ngModel)]="nature2"
+											class="form-control text-dark" required>
+											<option disabled selected value> -- séléctionner -- </option>
+											<option value="Copie intégrale">Copie intégrale</option>
+											<option value="Extrait avec filiation">Extrait avec filiation</option>
+											<option value="Extrait sans filiation">Extrait sans filiation</option>
+										</select>
+										<div class="help-block with-errors text-danger"></div>
+										<br />
+									</div>
+
+									<div class="form-group">
+										<label for="nombre2">Nombre d'exemplaire</label>
+										<select id="nombre2" name="nombre2" [(ngModel)]="nombre2"
+											class="form-control text-dark" required>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+										</select>
+										<div class="help-block with-errors text-danger"></div>
+										<br />
+									</div>
+
+								</div>
+							</div>
+
+							<div id="step3">
+
+								<div class="form-group">
+									Identification
+									<hr>
+								</div>
+
+								<div id="form2-step-2" role="form" data-toggle="validator">
+									<div class="form-group">
+
+										<div>
+											<label for="identite">Identité de la personne faisant l'objet de la
+												demande</label>
+										</div>
+										<div class="custom-control custom-radio custom-control-inline">
+											<input  [(ngModel)]="civilite2" checked type="radio" id="civilite21" name="civilite2"
+												value="Monsieur" class="custom-control-input">
+											<label class="custom-control-label" for="civilite21">Monsieur</label>
+										</div>
+										<div class="custom-control custom-radio custom-control-inline">
+											<input  [(ngModel)]="civilite2" type="radio" id="civilite22" name="civilite2" value="Madame"
+												class="custom-control-input">
+											<label class="custom-control-label" for="civilite22">Madame</label>
+										</div>
+
+										<div class="row">
+											<div class="col">
+												<label for="nom2">Nom</label>
+												<input [(ngModel)]="nom2" type="text" name="nom2"
+													class="form-control text-dark" required>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+											<div class="col">
+												<label for="prenom2">Prénoms</label>
+												<input [(ngModel)]="prenom2" type="text" name="prenom2"
+													class="form-control text-dark" required>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												<label for="numero2">Numéro régistre</label>
+												<input [(ngModel)]="numero2" type="number" name="numero2"
+													class="form-control text-dark" required />
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+											<div class="col">
+												<label for="datenaiss2">Date de naissance</label>
+												<input class="form-control text-dark" required type="date"
+												name="datenaiss2" [(ngModel)]="datenaiss2" id='datenaiss2' />
+											</div>
+										</div>
+										<br />
+
+										<div class="row">
+											<div class="col">
+												<label for="datemariage2">Date de mariage</label>
+												<input class="form-control text-dark" required type="date"
+												name="datemariage2" [(ngModel)]="datemariage2" id='datemariage2' />
+											</div>
+											<div class="col">
+												<label for="etatcivil_mariage2">Localité lieu célébration du mariage</label>
+												<select id="etatcivil_mariage2" name="etatcivil_mariage2" [(ngModel)]="etatcivil_mariage2"
+												class="form-control text-dark" required>
+												<option disabled selected value> -- séléctionner -- </option>
+												<option *ngFor="let com of listHospitalier" [ngValue]="com.libelle"
+													value="{{com.id}}">
+													{{com.libelle}}</option>
+											</select>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+										</div>
+										<br />
+
+										<hr>
+										Position géographique du demandeur
+										<hr>
+										<div class="row">
+											<div class="col">
+												<label for="paysB">Pays</label>
+												<select  id="paysB" name="paysB" [(ngModel)]="paysB" placeholder="Pays"
+											class="form-control text-dark" required>
+											<option disabled selected value=""> -- séléctionner -- </option>
+											<option value="France">France</option>
+											<option value="Togo">Togo</option>
+											<option value="Allemagne">Allemagne</option>
+											<option value="Belgique">Belgique</option>
+											<option value="Guinée Bissau">Guinée Bissau</option>
+											<option value="Mali">Mali</option>
+											<option value="Cameroun">Cameroun</option>
+										</select>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+											<div class="col">
+												<label for="nationalite2">Nationalité</label>
+												<input type="text" [(ngModel)]="nationalite2" name="nationalite2"
+													class="form-control text-dark" required>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div id="step4">
+								<div class="form-group">
+									Récapitulatif et envoi
+									<hr>
+									Votre démarche est bientôt terminée.
+									Veuillez vérifier l’exactitude des informations que vous avez communiquées. Vous
+									pouvez les modifier le cas échéant en cliquant sur le bouton «Précedent».
+								</div>
+
+								<div id="form2-step-3" role="form" data-toggle="validator">
+									Rechercher commune
+									<hr>
+									<div class="form-group">
+										<div class="row">
+											<div class="col">
+												Motif de la demande: {{motif2}}
+											</div>
+											<div class="col">
+												Commune concernée: {{commune2}}
+											</div>
+										</div>
+										<hr>
+
+										Type d'acte
+										<hr>
+										<div class="row">
+											<div class="col">
+												Type d'acte: Mariage
+											</div>
+											<div class="col">
+												Qualité du demandeur: {{qualite2}}
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Nature de l'acte: {{nature2}}
+											</div>
+											<div class="col">
+												Nombre d'exemplaire: {{nombre2}}
+											</div>
+										</div>
+										<hr>
+
+										Identification
+										<hr>
+										<div class="row">
+											<div class="col">
+												Civilité: {{civilite2}}
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Nom: {{nom2}}
+											</div>
+											<div class="col">
+												Prénoms: {{prenom2}}
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Numéro régistre: {{numero2}}
+											</div>
+											<div class="col">
+												Date de naissance: {{datenaiss2}}
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Date de mariage: {{datemariage2}}
+											</div>
+											<div class="col">
+												Lieu de mariage: {{etatcivil_mariage2}}
+											</div>
+										</div>
+										
+										<div class="row">
+											<div class="col">
+												Position géographique
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Pays : {{paysB}}
+											</div>
+											<div class="col">
+												Nationalité: {{nationalite2}}
+											</div>
+										</div>
+
+
+									</div>
+
+									<div class="row">
+										<div class="col">
+											<h3 class="panel-title">
+												Adresse réception de l'acte
+											</h3>
+											<br />
+
+											<label for="reception2">Comment voulez-vous recevoir l'acte ?</label>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="courrier()" [(ngModel)]="reception2" type="radio"  name="reception2" id="reception21"
+													value="courrier" class="custom-control-input">
+												<label class="custom-control-label" for="reception21">Par Courrier</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="email()" [(ngModel)]="reception2" type="radio" name="reception2" id="reception22"
+												value="email" class="custom-control-input">
+												<label class="custom-control-label" for="reception22">Par Email</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="presence()" [(ngModel)]="reception2" type="radio" name="reception2" id="reception23"
+												value="presence" class="custom-control-input">
+												<label class="custom-control-label" for="reception23"> physique</label>
+											</div>
+											<br />
+										
+											<input *ngIf="isCourrier" placeholder="Adresse" type="text" [(ngModel)]="adresse2" class="form-control text-dark" id="adresse2" name="adresse2"   />
+											<br />
+											<input *ngIf="isCourrier" placeholder="Boite postal" type="text" [(ngModel)]="postal2" class="form-control text-dark" id="postal2" name="postal2" />
+											<br />
+										<select *ngIf="isCourrier" id="pays2" name="pays2" [(ngModel)]="pays2" placeholder="Pays"
+											class="form-control text-dark" required>
+											<option disabled selected value=""> -- séléctionner -- </option>
+											<option value="France">France</option>
+											<option value="Togo">Togo</option>
+											<option value="Allemagne">Allemagne</option>
+											<option value="Belgique">Belgique</option>
+											<option value="Guinée Bissau">Guinée Bissau</option>
+											<option value="Mali">Mali</option>
+											<option value="Cameroun">Cameroun</option>
+										</select>
+										
+											<input *ngIf="isMail" [(ngModel)]="emailReception2"  name="emailReception2" id="emailReceptioné" class="form-control text-dark" 
+											type="email" placeholder="Enter email">
+												
+										</div>
+
+										<div class="col">
+											<form  id="myForm2a" role="form2a" #form2a="ngForm" (submit)="payer(form2a, 'demmariage')" >
+
+											<h3 class="panel-title">
+												Details Paiement
+											</h3>
+											<br />
+											<img class="img" src="assets/images/paydunya.png" />
+											<img class="img" src="assets/images/orange.jpg" />
+											<img class="img" src="assets/images/mastercard.jpg" />
+											<br />
+											
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="paydunya()" [(ngModel)]="paiement2" type="radio"  name="paiement2" id="paiement21"
+													value="paydunya" class="custom-control-input">
+												<label class="custom-control-label" for="paiement21">Paydunya</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="orange()" [(ngModel)]="paiement2" type="radio" name="paiement2" id="paiement22"
+												value="orange" class="custom-control-input">
+												<label class="custom-control-label" for="paiement22">Orange money</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="carte()" [(ngModel)]="paiement2" type="radio" name="paiement2" id="paiement23"
+												value="carte" class="custom-control-input">
+												<label class="custom-control-label" for="paiement23">Carte</label>
+											</div>
+											<br />
+
+											<input type="text" value="750 FCFA" [(ngModel)]="montantPaiement2" class="form-control text-dark" id="montantPaiement2" name="montantPaiement2" readonly />
+											<br />
+												<input *ngIf="isPaydunya" [(ngModel)]="paydunyemail2" type="email"  name="paydunyemail2" id="paydunyemail2"
+													placeholder="Entrer email" class="form-control text-dark">
+													<div class="help-block with-errors text-danger"></div>
+													<br />
+												<input *ngIf="isPaydunya" [(ngModel)]="paydunyapassword2" type="password"  name="paydunyapassword2" id="paydunyapassword2"
+												placeholder="Entrer password" class="form-control text-dark">
+												<div class="help-block with-errors text-danger"></div>
+												
+											<input *ngIf="isOrange" type="text" [(ngModel)]="nomPaiement2" class="form-control text-dark"  id="nomPaiement2" name="nomPaiement2" placeholder="Nom" />
 											<div class="help-block with-errors text-danger"></div>
 											<br />
-											<button (click)="payer()" class="btn btn-primary btn-lg btn-block" >Payer</button>
+											<input *ngIf="isOrange" type="number" [(ngModel)]="telPaiement2" class="form-control text-dark" id="telPaiement2" name="telPaiement2" placeholder="Numéro de téléphone"   />
+											<div class="help-block with-errors text-danger"></div>
 
+											<br />
+											<div><input type="submit" value="Payer" class="btn btn-primary btn-lg btn-block" /></div>
+											
+											</form>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div style="margin-left: 20;"><input type="submit" value="Valider" class="btn btn-success btn-block" /></div>
+				</div>
+				
+			</div>
+		</div>
+
+	</div>
+
+</form>
+<!-- Modal -->
+
+<!-- Modal demande deces-->
+<form  id="myForm3" role="form3" data-toggle="validator" #form3="ngForm" (submit)="onSubmit(form3, 'demdeces')" >
+
+	<div class="modal fade" id="modalDemandeDeces" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h5 class="modal-title">Demande acte décès</h5>
+					<button #closeModal (click)="hideModel();" type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div lass="modal-body mt-5 mb-5">
+					<div id="stepwizard3">
+						<ul>
+							<li><a href="#step1">Rechercher commune<br /> <small>Motif demende</small> </a></li>
+							<li><a href="#step2">Type d'acte<br /> <small> Nature de la demande</small> </a></li>
+							<li><a href="#step3">Identification<br /> <small> Numéro registre</small> </a></li>
+							<li><a href="#step4">Récapitulatif et envoi<br /> <small> Mode envoi</small> </a></li>
+						</ul>
+
+						<div>
+							<div id="step1">
+								<div class="form-group">
+									Rechercher Commune
+									<hr>
+									Vous souhaitez obtenir une copie ou un extrait d'acte d'état civil, pour une
+									personne
+									née eau Sénégal.Vous pouvez effectuer votre demande en ligne auprès de la commune
+									concernée. Suivant la commune, vous la transmettrez de façon électronique ou par
+									courrier postal. Votre commune vous expédiera le document demandé par courrier
+									postal.
+									Ce service est ouvert exclusivement aux particuliers.
+								</div>
+
+								<div id="form3-step-0" role="form" data-toggle="validator">
+									<div class="form-group">
+										<label for="motif3">Motif de la demande</label>
+										<select id="motif3" name="motif3" [(ngModel)]="motif3"
+											class="form-control text-dark" required>
+											<option disabled selected value=""> -- séléctionner -- </option>
+											<option value="Carte national d'identité">Carte national d'identité</option>
+											<option value="Passport">Passport</option>
+											<option value="certificat de nationalité sénégalaise">certificat de
+												nationalité sénégalaise</option>
+											<option value="Mariage">Mariage</option>
+											<option value="Pension">pension</option>
+											<option value="Precédure judiciaire">Precédure judiciaire</option>
+											<option value="Acte de notaire">Acte de notaire</option>
+											<option value="Autre">Autre</option>
+										</select>
+										<div class="help-block with-errors text-danger"></div>
+										<br />
+									</div>
+
+									<div class="form-group">
+										<label for="commune3">Commune concernée par l’acte</label>
+										<select id="commune3" name="commune3" [(ngModel)]="commune3"
+											class="form-control text-dark" required>
+											<option disabled selected value> -- séléctionner -- </option>
+											<option *ngFor="let com of listCommune" [ngValue]="com.code"
+												value="{{com.code}}">
+												{{com.libelle}}</option>
+										</select>
+										<div class="help-block with-errors text-danger"></div>
+										<br />
+									</div>
+								</div>
+
+							</div>
+							<div id="step2">
+								<div id="form3-step-1" role="form" data-toggle="validator">
+									<div class="form-group">
+										Type d'acte
+										<hr>
+										La commune : {{commune3}} n’est pas en mesure de recevoir votre demande d’acte d’état
+										civil de
+										manière dématérialisée. Vous pouvez cependant compléter le formulaire de demande
+										d’acte,
+										à l’issue de la saisie vous pourrez télécharger et imprimer la demande complétée
+										et
+										l’expédier par courrier postal à l’adresse de la commune. Le document demandé
+										vous sera
+										expédié en retour par courrier postal.
+									</div>
+
+									<div class="form-group">
+										<label for="qualite3">Qualité du demandeur</label>
+										<select id="qualite3" name="qualite3" [(ngModel)]="qualite3"
+											class="form-control text-dark" required>
+											<option disabled selected value> -- séléctionner -- </option>
+											<option value="La personne concernée par l'acte">La personne concernée par
+												l'acte</option>
+											<option value="Son pére ou sa mère">Son pére ou sa mère</option>
+											<option value="Son conjoint ou sa conjointe">Son conjoint ou sa conjointe
+											</option>
+											<option value="Son fils ou sa fille">Son fils ou sa fille</option>
+											<option value="Son représentant légal">Son représentant légal</option>
+											<option value="Autre">Autre</option>
+										</select>
+										<div class="help-block with-errors text-danger"></div>
+										<br />
+									</div>
+
+									<div class="form-group">
+										<label for="nature3">Nature de l'acte</label>
+										<select id="nature3" name="nature3" [(ngModel)]="nature3"
+											class="form-control text-dark" required>
+											<option disabled selected value> -- séléctionner -- </option>
+											<option value="Copie intégrale">Copie intégrale</option>
+											<option value="Extrait avec filiation">Extrait avec filiation</option>
+											<option value="Extrait sans filiation">Extrait sans filiation</option>
+										</select>
+										<div class="help-block with-errors text-danger"></div>
+										<br />
+									</div>
+
+									<div class="form-group">
+										<label for="nombre3">Nombre d'exemplaire</label>
+										<select id="nombre3" name="nombre3" [(ngModel)]="nombre3"
+											class="form-control text-dark" required>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+										</select>
+										<div class="help-block with-errors text-danger"></div>
+										<br />
+									</div>
+
+								</div>
+							</div>
+
+							<div id="step3">
+
+								<div class="form-group">
+									Identification
+									<hr>
+								</div>
+
+								<div id="form3-step-2" role="form" data-toggle="validator">
+									<div class="form-group">
+
+										<div>
+											<label for="identite">Identité de la personne faisant l'objet de la
+												demande</label>
+										</div>
+										<div class="custom-control custom-radio custom-control-inline">
+											<input  [(ngModel)]="civilite3" checked type="radio" id="civilite3" name="civilite3"
+												value="Monsieur" class="custom-control-input">
+											<label class="custom-control-label" for="civilite1">Monsieur</label>
+										</div>
+										<div class="custom-control custom-radio custom-control-inline">
+											<input  [(ngModel)]="civilite3" type="radio" id="civilite3" name="civilite3" value="Madame"
+												class="custom-control-input">
+											<label class="custom-control-label" for="civilite2">Madame</label>
+										</div>
+
+										<div class="row">
+											<div class="col">
+												<label for="nom3">Nom</label>
+												<input [(ngModel)]="nom3" type="text" name="nom3"
+													class="form-control text-dark" required>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+											<div class="col">
+												<label for="prenom3">Prénoms</label>
+												<input [(ngModel)]="prenom3" type="text" name="prenom3"
+													class="form-control text-dark" required>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												<label for="numero3">Numéro régistre</label>
+												<input [(ngModel)]="numero3" type="number" name="numero3"
+													class="form-control text-dark" required />
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+											<div class="col">
+												<label for="datenaiss3">Date de naissance</label>
+												<input class="form-control text-dark" required type="date"
+												name="datenaiss3" [(ngModel)]="datenaiss3" id='datenaiss3' />
+
+											</div>
+										</div>
+										<br />
+
+										<div class="row">
+											<div class="col">
+												<label for="datedeces3">Date de décès</label>
+												<input class="form-control text-dark" required type="date"
+												name="datedeces3" [(ngModel)]="datedeces3" id='datedeces3' />
+
+											</div>
+											<div class="col">
+												<label for="lieudeces3">Localité lieu de décès</label>
+												<select id="lieudeces3" name="lieudeces3" [(ngModel)]="lieudeces3"
+												class="form-control text-dark" required>
+												<option disabled selected value> -- séléctionner -- </option>
+												<option *ngFor="let com of listHospitalier" [ngValue]="com.id"
+													value="{{com.id}}">
+													{{com.libelle}}</option>
+											</select>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+										</div>
+										<br />
+										
+										<hr>
+										Position géographique du demandeur
+										<hr>
+										<div class="row">
+											<div class="col">
+												<label for="paysC">Pays</label>
+												<select  id="paysC" name="paysC" [(ngModel)]="paysC" placeholder="Pays"
+											class="form-control text-dark" required>
+											<option disabled selected value=""> -- séléctionner -- </option>
+											<option value="France">France</option>
+											<option value="Togo">Togo</option>
+											<option value="Allemagne">Allemagne</option>
+											<option value="Belgique">Belgique</option>
+											<option value="Guinée Bissau">Guinée Bissau</option>
+											<option value="Mali">Mali</option>
+											<option value="Cameroun">Cameroun</option>
+										</select>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+											<div class="col">
+												<label for="nationalite3">Nationalité</label>
+												<input type="text" [(ngModel)]="nationalite3" name="nationalite3"
+													class="form-control text-dark" required>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+							<div id="step4">
+								<div class="form-group">
+									Récapitulatif et envoi
+									<hr>
+									Votre démarche est bientôt terminée.
+									Veuillez vérifier l’exactitude des informations que vous avez communiquées. Vous
+									pouvez les modifier le cas échéant en cliquant sur le bouton «Précedent».
+								</div>
+
+								<div id="form3-step-3" role="form" data-toggle="validator">
+									Rechercher commune
+									<hr>
+									<div class="form-group">
+										<div class="row">
+											<div class="col">
+												Motif de la demande: {{motif3}}
+											</div>
+											<div class="col">
+												Commune concernée: {{commune3}}
+											</div>
+										</div>
+										<hr>
+
+										Type d'acte
+										<hr>
+										<div class="row">
+											<div class="col">
+												Type d'acte: Décès
+											</div>
+											<div class="col">
+												Qualité du demandeur: {{qualite3}}
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Nature de l'acte: {{nature3}}
+											</div>
+											<div class="col">
+												Nombre d'exemplaire: {{nombre3}}
+											</div>
+										</div>
+										<hr>
+
+										Identification
+										<hr>
+										<div class="row">
+											<div class="col">
+												Civilité: {{civilite3}}
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Nom: {{nom3}}
+											</div>
+											<div class="col">
+												Prénoms: {{prenom3}}
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Numéro régistre: {{numero3}}
+											</div>
+											<div class="col">
+												Date de naissance: {{datenaiss3}}
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Date décès : {{datedeces3}}
+											</div>
+											<div class="col">
+												Lieu : {{lieudeces3}}
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col">
+											Pays : {{paysC}}
+											</div>
+											<div class="col">
+												Nationalité : {{nationalite3}}
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col">
+											<h3 class="panel-title">
+												Adresse réception de l'acte
+											</h3>
+											<br />
+
+											<label for="reception3">Comment voulez-vous recevoir l'acte ?</label>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="courrier()" [(ngModel)]="reception3" type="radio"  name="reception3" id="reception31"
+													value="courrier" class="custom-control-input">
+												<label class="custom-control-label" for="reception31">Par Courrier</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="email()" [(ngModel)]="reception3" type="radio" name="reception3" id="reception32"
+												value="email" class="custom-control-input">
+												<label class="custom-control-label" for="reception32">Par Email</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="presence()" [(ngModel)]="reception3" type="radio" name="reception3" id="reception33"
+												value="presence" class="custom-control-input">
+												<label class="custom-control-label" for="reception33"> physique</label>
+											</div>
+											<br />
+										
+											<input *ngIf="isCourrier" placeholder="Adresse" type="text" [(ngModel)]="adresse3" class="form-control text-dark" id="adresse3" name="adresse3"   />
+											<br />
+											<input *ngIf="isCourrier" placeholder="Boite postal" type="text" [(ngModel)]="postal3" class="form-control text-dark" id="postal3" name="postal3" />
+											<br />
+										<select *ngIf="isCourrier" id="pays3" name="pays3" [(ngModel)]="pays3" placeholder="Pays"
+											class="form-control text-dark" required>
+											<option disabled selected value=""> -- séléctionner -- </option>
+											<option value="France">France</option>
+											<option value="Togo">Togo</option>
+											<option value="Allemagne">Allemagne</option>
+											<option value="Belgique">Belgique</option>
+											<option value="Guinée Bissau">Guinée Bissau</option>
+											<option value="Mali">Mali</option>
+											<option value="Cameroun">Cameroun</option>
+										</select>
+										
+											<input *ngIf="isMail" [(ngModel)]="emailReception3"  name="emailReception3" id="emailReception3" class="form-control text-dark" 
+											type="email" placeholder="Enter email">
+												
+										</div>
+
+										<div class="col">
+											<form  id="myForm3a" role="form3a" #form3a="ngForm" (submit)="payer(form3a, 'demdeces')" >
+
+											<h3 class="panel-title">
+												Details Paiement
+											</h3>
+											<br />
+											<img class="img" src="assets/images/paydunya.png" />
+											<img class="img" src="assets/images/orange.jpg" />
+											<img class="img" src="assets/images/mastercard.jpg" />
+											<br />
+											
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="paydunya()" [(ngModel)]="paiement3" type="radio"  name="paiement3" id="paiement31"
+													value="paydunya" class="custom-control-input">
+												<label class="custom-control-label" for="paiement31">Paydunya</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="orange()" [(ngModel)]="paiement3" type="radio" name="paiement3" id="paiement32"
+												value="orange" class="custom-control-input">
+												<label class="custom-control-label" for="paiement32">Orange money</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="carte()" [(ngModel)]="paiement3" type="radio" name="paiement3" id="paiement33"
+												value="carte" class="custom-control-input">
+												<label class="custom-control-label" for="paiement33">Carte</label>
+											</div>
+											<br />
+
+											<input type="text" value="750 FCFA" [(ngModel)]="montantPaiement3" class="form-control text-dark" id="montantPaiement3" name="montantPaiement3" readonly />
+											<br />
+												<input *ngIf="isPaydunya" [(ngModel)]="paydunyemail3" type="email"  name="paydunyemail3" id="paydunyemail3"
+													placeholder="Entrer email" class="form-control text-dark">
+													<div class="help-block with-errors text-danger"></div>
+													<br />
+												<input *ngIf="isPaydunya" [(ngModel)]="paydunyapassword3" type="password"  name="paydunyapassword3" id="paydunyapassword3"
+												placeholder="Entrer password" class="form-control text-dark">
+												<div class="help-block with-errors text-danger"></div>
+												
+											<input *ngIf="isOrange" type="text" [(ngModel)]="nomPaiement3" class="form-control text-dark"  id="nomPaiement3" name="nomPaiement3" placeholder="Nom" />
+											<div class="help-block with-errors text-danger"></div>
+											<br />
+											<input *ngIf="isOrange" type="number" [(ngModel)]="telPaiement3" class="form-control text-dark" id="telPaiement3" name="telPaiement3" placeholder="Numéro de téléphone"   />
+											<div class="help-block with-errors text-danger"></div>
+
+											<br />
+											<div><input type="submit" value="Payer" class="btn btn-primary btn-lg btn-block" /></div>
+											
+											</form>
 										</div>
 
 									</div>
@@ -538,8 +1844,479 @@
 							</div>
 						</div>
 					</div>
+					
+					<div style="margin-left: 20;"><input type="submit" value="Valider" class="btn btn-success btn-block" /></div>
+				</div>
+				
+			</div>
+		</div>
 
-					<div style="margin-left: 20;"><button [disabled]="paye" (click)="onSubmit()" class="btn btn-success">Valider</button> </div>
+	</div>
+
+</form>
+<!-- Modal -->
+
+<!-- Modal declaration deces-->
+<form  id="myForm4" role="form4" data-toggle="validator" #form4="ngForm" (submit)="onSubmit(form4, 'decdeces')" >
+
+	<div class="modal fade" id="modalDeclarationDeces" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h5 class="modal-title">Déclaration de décès</h5>
+					<button #closeModal (click)="hideModel();" type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div lass="modal-body mt-5 mb-5">
+					<div id="stepwizard4">
+						<ul>
+							<li><a href="#step1">Rechercher commune<br /> <small>Nature declaration</small> </a></li>
+							<li><a href="#step2">Identification<br /> <small> Numéro registre</small> </a></li>
+							<li><a href="#step3">Motif<br /> <small> décès</small> </a></li>
+							<li><a href="#step4">Récapitulatif et envoi<br /> <small> Mode envoi</small> </a></li>
+						</ul>
+
+						<div>
+							<div id="step1">
+								<div class="form-group">
+									Rechercher Commune
+									<hr>
+									Vous souhaitez déclarer une enfant
+									née au Sénégal.Vous pouvez effectuer la déclarartion en ligne auprès de la commune
+									concernée. Suivant la commune, vous la transmettrez de façon électronique ou par
+									courrier postal. Votre commune vous expédiera le document demandé par courrier
+									postal.
+									Ce service est ouvert exclusivement aux particuliers.
+								</div>
+
+								<div id="form4-step-0" role="form" data-toggle="validator">
+							
+									<div class="form-group">
+										
+										<label for="communedeces4">Commune concernée par l’acte</label>
+										<select id="communedeces4" name="communedeces4" [(ngModel)]="communedeces4"
+											class="form-control text-dark" required>
+											<option disabled selected value> -- séléctionner -- </option>
+											<option *ngFor="let com of listCommune" [ngValue]="com.code"
+												value="{{com.libelle}}">
+												{{com.libelle}}</option>
+										</select>
+										<div class="help-block with-errors text-danger"></div>
+										<br />
+									</div>
+
+									<div class="form-group">
+										<label for="qualitedeces4">Qualité du déclarant</label>
+										<select id="qualitedeces4" name="qualitedeces4" [(ngModel)]="qualitedeces4"
+											class="form-control text-dark" required>
+											<option disabled selected value> -- séléctionner -- </option>
+											<option value="La personne concernée par l'acte">La personne concernée par
+												l'acte</option>
+											<option value="Son pére ou sa mère">Son pére ou sa mère</option>
+											<option value="Son conjoint ou sa conjointe">Son conjoint ou sa conjointe
+											</option>
+											<option value="Son fils ou sa fille">Son fils ou sa fille</option>
+											<option value="Son représentant légal">Son représentant légal</option>
+											<option value="Autre">Autre</option>
+										</select>
+										<div class="help-block with-errors text-danger"></div>
+										<br />
+									</div>
+
+								</div>
+
+							</div>
+						
+							<div id="step2">
+
+								<div class="form-group">
+									Identification
+									<hr>
+								</div>
+
+								<div id="form4-step-1" role="form" data-toggle="validator">
+									<div class="form-group">
+
+										<div>
+											<label for="identite">Identité de la personne faisant l'objet de la
+												declaration</label>
+										</div>
+										<div class="custom-control custom-radio custom-control-inline">
+											<input  [(ngModel)]="civilitedeces4" checked type="radio" id="civilitedeces41" name="civilitedeces4"
+												value="Monsieur" class="custom-control-input">
+											<label class="custom-control-label" for="civilitedeces41">Monsieur</label>
+										</div>
+										<div class="custom-control custom-radio custom-control-inline">
+											<input  [(ngModel)]="civilitedeces4" type="radio" id="civilitedeces42" name="civilitedeces4" value="Madame"
+												class="custom-control-input">
+											<label class="custom-control-label" for="civilitedeces42">Madame</label>
+										</div>
+
+										<div class="row">
+											<div class="col">
+												<label for="nomdeces4">Nom</label>
+												<input [(ngModel)]="nomdeces4" type="text" name="nomdeces4"
+													class="form-control text-dark" required>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+											<div class="col">
+												<label for="prenomdeces4">Prénoms</label>
+												<input [(ngModel)]="prenomdeces4" type="text" name="prenomdeces4"
+													class="form-control text-dark" required>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												<label for="datenaissdeces4">Date de naissance</label>
+												<input class="form-control text-dark" required type="date"
+												 name="datenaissdeces4" [(ngModel)]="datenaissdeces4" id='datenaissdeces4' />
+											</div>
+											<div class="col">
+												<label for="lieunaissdeces4">Lieu de naissance</label>											
+													<input [(ngModel)]="lieunaissdeces4" name="lieunaissdeces4" type="text"
+														class="form-control text-dark" required />
+													<div class="help-block with-errors text-danger"></div>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+
+							<div id="step3">
+								<div class="form-group">
+									Condition du décès
+									<hr>
+								</div>
+
+								<div id="form4-step-2" role="form" data-toggle="validator">
+
+									<br />
+
+										<div class="row">
+											<div class="col">
+												<label for="date">Date de décès</label>
+												<input class="form-control text-dark" required type="date"
+												 name="datedeces4" [(ngModel)]="datedeces4" id='datedeces4' />
+											
+											</div>
+											<div class="col">
+												<label for="lieudeces4">Lieu de décès</label>
+												<select id="lieudeces4" name="lieudeces4" [(ngModel)]="lieudeces4"
+												class="form-control text-dark" required>
+												<option disabled selected value> -- séléctionner -- </option>
+												<option *ngFor="let com of listHospitalier" [ngValue]="com.id"
+													value="{{com.id}}">
+													{{com.libelle}}</option>
+											</select>
+												<div class="help-block with-errors text-danger"></div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												<div class="form-group">
+													<label for="heuredeces4">Heure de décès</label>
+													<br />
+													<input class="form-control text-dark" required type="time"
+												 name="heuredeces4" [(ngModel)]="heuredeces4" id='heuredeces4' />
+					
+												</div>
+											</div>
+											<div class="col">
+												<label for="motifdeces4">Motif décès</label>											
+												<textarea id="motifdeces4" name="motifdeces4" rows="4" cols="50"
+												[(ngModel)]="motifdeces4" placeholder="Entrer le motif du déces...">
+													
+													</textarea>
+													<div class="help-block with-errors text-danger"></div>
+											</div>
+										</div>
+										<br />
+
+										<hr>
+										<div class="row">
+											<div class="col">
+												<label for="nommedecin4">Nom médecin</label>
+													<input [(ngModel)]="nommedecin4" name="nommedecin4" type="text"
+														class="form-control text-dark" required />
+													<div class="help-block with-errors text-danger"></div>
+											</div>
+										
+										</div>
+
+
+								</div>
+
+							</div>
+
+							<div id="step4">
+								<div class="form-group">
+									Récapitulatif et envoi
+									<hr>
+									Votre démarche est bientôt terminée.
+									Veuillez vérifier l’exactitude des informations que vous avez communiquées. Vous
+									pouvez les modifier le cas échéant en cliquant sur le bouton «Précedent».
+								</div>
+
+								<div id="form4-step-3" role="form" data-toggle="validator">
+									Rechercher commune
+									<hr>
+									<div class="form-group">
+										<div class="row">
+											<div class="col">
+												Commune concernée: {{communedeces4}}
+											</div>
+											<div class="col">
+												
+												Qualité du demandeur: {{qualitedeces4}}
+											</div>
+										</div>
+										<hr>
+
+										Identification
+										<hr>
+										<div class="row">
+											<div class="col">
+												Type d'acte: Déclaration de décès
+											</div>
+											<div class="col">
+												Qualité du demandeur: {{civilitedeces4}}
+												
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Nom: {{nomdeces4}}
+											</div>
+											<div class="col">
+												Prénoms: {{prenomdeces4}}
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Date de naissance: {{datenaissdeces4}}
+											</div>
+											<div class="col">
+												Lieu de naissance: {{lieunaissdeces4}}
+											</div>
+										</div>
+										
+										<hr>
+
+										Condition du décès
+										<hr>
+										<div class="row">
+											<div class="col">
+												Date décès: {{datedeces4}}
+											</div>
+											<div class="col">
+												Lieu : {{lieudeces4}}
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Heure décès: {{heuredeces4}}
+											</div>
+											<div class="col">
+												Motif : {{motifdeces4}}
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Nom médecin : {{nommedecin4}}
+											</div>
+										</div>
+										
+									</div>
+
+									<div class="row">
+										<div class="col">
+											<h3 class="panel-title">
+												Adresse réception de l'acte
+											</h3>
+											<br />
+
+											<label for="reception">Comment voulez-vous recevoir l'acte ?</label>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="courrier()" [(ngModel)]="reception4" type="radio"  name="reception4" id="reception41"
+													value="courrier" class="custom-control-input">
+												<label class="custom-control-label" for="reception41">Par Courrier</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="email()" [(ngModel)]="reception4" type="radio" name="reception4" id="reception42"
+												value="email" class="custom-control-input">
+												<label class="custom-control-label" for="reception42">Par Email</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="presence()" [(ngModel)]="reception4" type="radio" name="reception4" id="reception43"
+												value="presence" class="custom-control-input">
+												<label class="custom-control-label" for="reception43"> physique</label>
+											</div>
+											<br />
+										
+											<input *ngIf="isCourrier" placeholder="Adresse" type="text" [(ngModel)]="adresse4" class="form-control text-dark" id="adresse4" name="adresse4"   />
+											<br />
+											<input *ngIf="isCourrier" placeholder="Boite postal" type="text" [(ngModel)]="postal4" class="form-control text-dark" id="postal4" name="postal4" />
+											<br />
+										<select *ngIf="isCourrier" id="pays4" name="pays4" [(ngModel)]="pays4" placeholder="Pays"
+											class="form-control text-dark" required>
+											<option disabled selected value=""> -- séléctionner -- </option>
+											<option value="France">France</option>
+											<option value="Togo">Togo</option>
+											<option value="Allemagne">Allemagne</option>
+											<option value="Belgique">Belgique</option>
+											<option value="Guinée Bissau">Guinée Bissau</option>
+											<option value="Mali">Mali</option>
+											<option value="Cameroun">Cameroun</option>
+										</select>
+										
+											<input *ngIf="isMail" [(ngModel)]="emailReception4"  name="emailReception4" id="emailReception4" class="form-control text-dark" 
+											type="email" placeholder="Enter email">
+												
+										</div>
+
+										<div class="col">
+											<form  id="myForm4a" role="form4a" #form4a="ngForm" (submit)="payer(form4a, 'decdeces')" >
+
+											<h3 class="panel-title">
+												Details Paiement
+											</h3>
+											<br />
+											<img class="img" src="assets/images/paydunya.png" />
+											<img class="img" src="assets/images/orange.jpg" />
+											<img class="img" src="assets/images/mastercard.jpg" />
+											<br />
+											
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="paydunya()" [(ngModel)]="paiement4" type="radio"  name="paiement4" id="paiement41"
+													value="paydunya" class="custom-control-input">
+												<label class="custom-control-label" for="paiement41">Paydunya</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="orange()" [(ngModel)]="paiement4" type="radio" name="paiement4" id="paiement42"
+												value="orange" class="custom-control-input">
+												<label class="custom-control-label" for="paiement42">Orange money</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline">
+												<input (click)="carte()" [(ngModel)]="paiement4" type="radio" name="paiement4" id="paiement43"
+												value="carte" class="custom-control-input">
+												<label class="custom-control-label" for="paiement43">Carte</label>
+											</div>
+											<br />
+
+											<input type="text" value="750 FCFA" [(ngModel)]="montantPaiement4" class="form-control text-dark" id="montantPaiement4" name="montantPaiement4" readonly />
+											<br />
+												<input *ngIf="isPaydunya" [(ngModel)]="paydunyemail4" type="email"  name="paydunyemail4" id="paydunyemail4"
+													placeholder="Entrer email" class="form-control text-dark">
+													<div class="help-block with-errors text-danger"></div>
+													<br />
+												<input *ngIf="isPaydunya" [(ngModel)]="paydunyapassword4" type="password"  name="paydunyapassword4" id="paydunyapassword4"
+												placeholder="Entrer password" class="form-control text-dark">
+												<div class="help-block with-errors text-danger"></div>
+												
+											<input *ngIf="isOrange" type="text" [(ngModel)]="nomPaiement4" class="form-control text-dark"  id="nomPaiement4" name="nomPaiement4" placeholder="Nom" />
+											<div class="help-block with-errors text-danger"></div>
+											<br />
+											<input *ngIf="isOrange" type="number" [(ngModel)]="tel4" class="form-control text-dark" id="telPaiement4" name="telPaiement4" placeholder="Numéro de téléphone"   />
+											<div class="help-block with-errors text-danger"></div>
+
+											<br />
+											<div><input type="submit" value="Payer" class="btn btn-primary btn-lg btn-block" /></div>
+											
+											</form>
+										</div>
+										
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div style="margin-left: 20;"><input type="submit" value="Valider" class="btn btn-success btn-block" /></div>
+				</div>
+				
+			</div>
+		</div>
+
+	</div>
+
+</form>
+<!-- Modal -->
+
+<!-- Modal choix naissance -->
+<form  id="monChoix1" role="formn" data-toggle="validator">
+
+	<div class="modal fade" id="choixNaissanceModalForm" tabindex="-1" role="dialog" aria-labelledby="monModalLabeln"
+		aria-hidden="true">
+		<div class="modal-dialog">
+
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h5 class="modal-title">Type de téléprocédure</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div lass="modal-body mt-5 mb-5">
+				
+					<div *ngIf="showDeclaration" class="custom-control custom-radio">
+						<input data-toggle="modal" data-target="#modalDeclarationNaissance" data-dismiss="modal" type="radio" class="custom-control-input" id="defaultUnchecked1" name="mNaissance">
+						<label class="custom-control-label" for="defaultUnchecked1">Déclaration d'acte</label>
+					</div>
+					
+					<div class="custom-control custom-radio">
+						<input data-toggle="modal" data-target="#modalDemandeNaissance" data-dismiss="modal" type="radio" class="custom-control-input" id="defaultChecked1" name="mNaissance" >
+						<label class="custom-control-label" for="defaultChecked1">Demande d'acte</label>
+					</div>
+					
+				</div>
+				
+			</div>
+		</div>
+
+	</div>
+
+</form>
+<!-- Modal -->
+
+<!-- Modal choix deces -->
+<form  id="monChoix3" role="formd" data-toggle="validator">
+
+	<div class="modal fade" id="choixDecesModalForm" tabindex="-1" role="dialog" aria-labelledby="monModalLabeld"
+		aria-hidden="true">
+		<div class="modal-dialog">
+
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h5 class="modal-title">Type de téléprocédure</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div lass="modal-body mt-5 mb-5">
+					
+					<div *ngIf="showDeclaration" class="custom-control custom-radio">
+						<input data-toggle="modal" data-target="#modalDeclarationDeces" data-dismiss="modal" type="radio" class="custom-control-input" id="defaultUnchecked" name="mDeces">
+						<label class="custom-control-label" for="defaultUnchecked">Déclaration d'acte</label>
+					</div>
+					
+					<div class="custom-control custom-radio">
+						<input data-toggle="modal" data-target="#modalDemandeDeces" data-dismiss="modal" type="radio" class="custom-control-input" id="defaultChecked" name="mDeces" >
+						<label class="custom-control-label" for="defaultChecked">Demande d'acte</label>
+					</div>
+					
 				</div>
 				
 			</div>

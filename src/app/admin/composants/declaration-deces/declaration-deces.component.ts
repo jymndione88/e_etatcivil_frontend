@@ -23,11 +23,7 @@ export class DeclarationDecesComponent implements OnInit {
 
  ngOnInit() {
   //Chargement de la liste des types de declaration
-  this.service.loadDeces()
-  .subscribe((data:any) => {
-    console.log(data);
-    this.service.list = data;
-   });
+  this.service.loadDeces();
 
 //changement langue tableau
 this.dtOptions = {

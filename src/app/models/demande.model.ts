@@ -17,11 +17,12 @@ export class Demande {
     nom: string;
     prenom: string;
     datenaiss: Date;
+    numRegistre: number;
     pays: string;
     nationalite: string;
     etat: string;
+    commentaire: string;
 
-    idCommune: Commune;
     idOfficier: Officier;
     idNaissance: Naissance;
     idMariage: Mariage;

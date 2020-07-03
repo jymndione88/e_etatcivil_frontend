@@ -2,6 +2,8 @@ import { Livraison } from '../models/livraison.model';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { from, Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,36 +16,69 @@ export class LivraisonService {
 
   constructor(private http: HttpClient
     ) { }
-    readonly serverUrl = environment.apiURL + "/Livraison";
+    readonly serverUrl = environment.apiURL + "/livraison";
 
   loadListeLivraison() {
-    return this.http.get(this.serverUrl)
-      .toPromise()
-      .then(res => this.list = res as Livraison[]);
+    return this.http.get(this.serverUrl).
+    pipe(
+       map((data: Livraison[]) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
-  getLivraisonBytype(id_type: number) {
-    return this.http.get(environment.apiURL+"/Livraisonbytype/"+id_type);
-  }
+ // getLivraisonBytype(id_type: number) {
+   // return this.http.get(environment.apiURL+"/Livraisonbytype/"+id_type);
+  //}
 
   getLivraison(id: number) {
-    return this.http.get(`${this.serverUrl}/${id}`);
+    return this.http.get(this.serverUrl + '/' + id).
+    pipe(
+       map((data: Livraison) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
-  getLivraisonBynum(formData: Livraison) {
+ // getLivraisonBynum(formData: Livraison) {
     //return this.http.get(environment.apiURL+"/Livraisonbynum/"+formData.numero);
-  }
+  //}
 
   postLivraison(formData: Livraison) {
-    return this.http.post(this.serverUrl, formData);
+    return this.http.post(this.serverUrl, formData).
+    pipe(
+       map((data: Livraison) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
   putLivraison(formData: Livraison) {
-    return this.http.put(`${this.serverUrl}/${formData.id}`, formData);
+    return this.http.put(this.serverUrl + '/' + formData.id, formData).
+    pipe(
+       map((data:any) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
   deleteLivraison(id: number) {
-    return this.http.delete(`${this.serverUrl}/${id}`);
+    return this.http.delete(this.serverUrl + '/' + id).
+    pipe(
+       map((data:any) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
 }

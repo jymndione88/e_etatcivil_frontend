@@ -30,10 +30,6 @@ export class MariageService {
     )
   }
 
-//  getType_declarationBytype(id_type: number) {
-  //  return this.http.get(environment.apiURL+"/typedeclarationbytype/"+id_type);
- // }
-
   getMariage(id: number) {
     return this.http.get(this.serverUrl + '/' + id).
     pipe(
@@ -45,9 +41,16 @@ export class MariageService {
     )
   }
 
- // getType_declarationBynum(formData: Mariage) {
-   // return this.http.get(environment.apiURL+"/Type_declarationbynum/"+formData.numero);
- // }
+  getMariageByDeclaration(id: number, num: string) {
+    return this.http.get(this.serverUrl + "/" + id + "/" + num).
+    pipe(
+       map((data: Mariage) => {
+        return data;
+       }), catchError( error => {
+        return throwError( 'Erreur:' + error );
+       })
+    )
+  }
 
   postMariage(formData: Mariage) {
     return this.http.post(this.serverUrl, formData).

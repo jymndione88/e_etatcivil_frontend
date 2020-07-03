@@ -2,6 +2,9 @@ import { Personne } from '../models/personne.model';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { from, Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +20,14 @@ export class PersonneService {
     readonly serverUrl = environment.apiURL + "/Personne";
 
   loadListePersonne() {
-    return this.http.get(this.serverUrl)
-      .toPromise()
-      .then(res => this.list = res as Personne[]);
+    return this.http.get(this.serverUrl).
+    pipe(
+       map((data: Personne[]) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
   getPersonneBytype(id_type: number) {

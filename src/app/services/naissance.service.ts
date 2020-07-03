@@ -22,7 +22,7 @@ export class NaissanceService {
     readonly serverUrlMail = environment.apiURL+"/sendmail";
     
     sendEmail(data: Email) {
-      return this.http.get(this.serverUrlMail + '/' + data.mail + '/' + data.objet + '/' + data.body).
+      return this.http.get(this.serverUrlMail + '/' + data.email + '/' + data.objet + '/' + data.body).
       pipe(
          map((data: any) => {
            console.log("entre");
@@ -45,9 +45,16 @@ export class NaissanceService {
     )
   }
 
-//  getType_declarationBytype(id_type: number) {
-  //  return this.http.get(environment.apiURL+"/typedeclarationbytype/"+id_type);
- // }
+  getNaissanceByDeclaration(id: number, num: number) {
+    return this.http.get(this.serverUrl + "/" + id + "/" + num).
+    pipe(
+       map((data: Naissance) => {
+        return data;
+       }), catchError( error => {
+        return throwError( 'Erreur:' + error );
+       })
+    )
+  }
 
   getNaissance(id: number) {
     return this.http.get(this.serverUrl + '/' + id).
@@ -59,10 +66,6 @@ export class NaissanceService {
        })
     )
   }
-
- // getType_declarationBynum(formData: Naissance) {
-   // return this.http.get(environment.apiURL+"/Type_declarationbynum/"+formData.numero);
- // }
 
   postNaissance(formData: Naissance) {
     return this.http.post(this.serverUrl, formData).

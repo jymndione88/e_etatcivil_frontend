@@ -62,7 +62,9 @@ valideNaissance(td: Naissance){
 
   console.log("si");
   console.log(td);
-  this.data.mail= td.idDeclaration.idInternaute.email;
+
+  this.data = new Email();
+  this.data.email= td.idDeclaration.idInternaute.email;
 
   if (this.texte == "Valide"){
     this.data.objet= "Validation déclaration de naissance";

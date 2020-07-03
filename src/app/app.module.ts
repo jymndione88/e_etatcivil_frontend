@@ -53,6 +53,8 @@ import { DemandeNaissanceComponent } from './admin/composants/demande-naissance/
 import { DemandeMariageComponent } from './admin/composants/demande-mariage/demande-mariage.component';
 import { DemandeDecesComponent } from './admin/composants/demande-deces/demande-deces.component';
 
+import { authInterceptorProviders } from './services/auth.interceptor';
+
 @NgModule({
   declarations: [
 
@@ -114,8 +116,9 @@ import { DemandeDecesComponent } from './admin/composants/demande-deces/demande-
       confirmText: "Supprimer"
     }),
     DataTablesModule
+    
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

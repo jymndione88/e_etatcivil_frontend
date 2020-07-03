@@ -17,11 +17,11 @@ export class DemandeService {
 
   constructor(private http: HttpClient
     ) { }
-    readonly serverUrl = environment.apiURL + "/Demande";
+    readonly serverUrl = environment.apiURL + "/demande";
     readonly serverUrlMail = environment.apiURL+"/sendmail";
     
     sendEmail(data: Email) {
-      return this.http.get(this.serverUrlMail + '/' + data.mail + '/' + data.objet + '/' + data.body).
+      return this.http.post(this.serverUrlMail, data).
       pipe(
          map((data: any) => {
            console.log("entre");
@@ -34,7 +34,7 @@ export class DemandeService {
     }
 
   loadListeDemandeParNature(nat: string) {
-    return this.http.get(this.serverUrl + '/' + nat).
+    return this.http.get(this.serverUrl + '/' + nat + '/liste').
     pipe(
        map((data: Demande[]) => {
          return data;

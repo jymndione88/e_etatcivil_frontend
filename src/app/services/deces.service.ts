@@ -30,10 +30,6 @@ export class DecesService {
     )
   }
 
-//  getType_declarationBytype(id_type: number) {
-  //  return this.http.get(environment.apiURL+"/typedeclarationbytype/"+id_type);
- // }
-
   getDeces(id: number) {
     return this.http.get(this.serverUrl + '/' + id).
     pipe(
@@ -45,9 +41,16 @@ export class DecesService {
     )
   }
 
- // getType_declarationBynum(formData: Deces) {
-   // return this.http.get(environment.apiURL+"/Type_declarationbynum/"+formData.numero);
- // }
+  getDecesByDeclaration(id: number, num: number) {
+    return this.http.get(this.serverUrl + "/" + id + "/" + num).
+    pipe(
+       map((data: Deces) => {
+        return data;
+       }), catchError( error => {
+        return throwError( 'Erreur:' + error );
+       })
+    )
+  }
 
   postDeces(formData: Deces) {
     return this.http.post(this.serverUrl, formData).

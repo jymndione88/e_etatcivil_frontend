@@ -34,6 +34,7 @@
                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Nom </th>
                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Prénom</th>
                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Nationalité</th>
+                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Commune</th>
                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Progression</th>
                 <th class="text-center">Statut</th>
                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Actions</th>
@@ -57,6 +58,7 @@
               <td >{{ naiss.nom}}</td>
               <td >{{ naiss.prenom }} </td>
               <td >{{ naiss.nationalite }}</td>
+              <td >{{ naiss.idCommune.libelle }}</td>
 
               <td class="project_progress">
                 <div class="progress progress-sm">
@@ -68,8 +70,10 @@
                 </small>
             </td>
               <td >
-                <a (click)="valideDemande(naiss)" [ngClass]="etat ? 'btn btn-success btn-lg active' : 'btn btn-danger btn-lg active'"  role="button" aria-pressed="true">{{this.texte}}</a>
-              
+              <!--  <a (click)="valideDemande(naiss)" [ngClass]="etat ? 'btn btn-success btn-lg active' : 'btn btn-danger btn-lg active'"  role="button" aria-pressed="true">{{this.texte}}</a>  --> 
+              <a (click)="valideDemande(naiss)" class="btn btn-success btn-lg active"  role="button" aria-pressed="true">Valider</a>
+                <a (click)="populateDemande(naiss)" data-toggle="modal"
+                data-target="#commentModal" class="btn btn-danger btn-lg active'"  role="button" aria-pressed="true">Invalider</a>
               </td>
                 <td>
                   <a class="link-black text-lg" mwlConfirmationPopover [popoverTitle]="popoverTitle" *ngIf="this.etat!=null"
@@ -97,7 +101,7 @@
      <div class="modal-header">
        <div class="row">
          <div >
-           <h4 class="modal-title" id="exampleModalLabel">Déclaration de naissance</h4>
+           <h4 class="modal-title" id="exampleModalLabel">Demande d'acte de naissance</h4>
          </div>
          <div>
          </div>
@@ -114,14 +118,14 @@
      <div class="modal-body">
 
        <div class="row">
-         <div class="col-md-12">
-           <div class="col-md-7 form-group">        
+         <div >
+           <div >        
             <div class="input-group">
               <div >
-                <h4 class="modal-title" id="exampleModalLabel">Genre : </h4>
+                <h4 class="modal-title" id="exampleModalLabel">Numero régistre : </h4>
               </div>
               <div >
-                <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.genre}}</h4>
+                <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.idNaissance.idDeclaration.numero}}</h4>
               </div>
              </div>
            </div>
@@ -129,14 +133,29 @@
        </div>
 
        <div class="row">
-        <div class="col-md-12">
-          <div class="col-md-7 form-group">          
+        <div >
+          <div >        
+           <div class="input-group">
+             <div >
+               <h4 class="modal-title" id="exampleModalLabel">Genre: </h4>
+             </div>
+             <div >
+               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.idNaissance.genre}}</h4>
+             </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <div class="row">
+        <div >
+          <div >          
            <div class="input-group">
              <div >
                <h4 class="modal-title" id="exampleModalLabel">Nom : </h4>
              </div>
              <div >
-               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.nom}}</h4>
+               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.idNaissance.nom}}</h4>
              </div>
             </div>
           </div>
@@ -144,14 +163,14 @@
       </div>
 
       <div class="row">
-        <div class="col-md-12">
-          <div class="col-md-7 form-group">          
+        <div >
+          <div >          
            <div class="input-group">
              <div >
                <h4 class="modal-title" id="exampleModalLabel">Prénom : </h4>
              </div>
              <div >
-               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.prenom}}</h4>
+               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.idNaissance.prenom}}</h4>
              </div>
             </div>
           </div>
@@ -159,14 +178,14 @@
       </div>
 
       <div class="row">
-        <div class="col-md-12">
-          <div class="col-md-7 form-group">          
+        <div >
+          <div >          
            <div class="input-group">
              <div >
                <h4 class="modal-title" id="exampleModalLabel">Date naissance : </h4>
              </div>
              <div >
-               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.datenaiss}}</h4>
+               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.idNaissance.datenaiss}}</h4>
              </div>
             </div>
           </div>
@@ -174,14 +193,14 @@
       </div>
 
       <div class="row">
-        <div class="col-md-12">
-          <div class="col-md-7 form-group">          
+        <div >
+          <div >          
            <div class="input-group">
              <div >
                <h4 class="modal-title" id="exampleModalLabel">Lieu naissance : </h4>
              </div>
              <div >
-               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.lieunaiss}}</h4>
+               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.idNaissance.lieunaiss}}</h4>
              </div>
             </div>
           </div>
@@ -189,14 +208,14 @@
       </div>
 
       <div class="row">
-        <div class="col-md-12">
-          <div class="col-md-7 form-group">          
+        <div >
+          <div >          
            <div class="input-group">
              <div >
                <h4 class="modal-title" id="exampleModalLabel">Heure naissance : </h4>
              </div>
              <div >
-               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.heurenaiss}}</h4>
+               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.idNaissance.heurenaiss}}</h4>
              </div>
             </div>
           </div>
@@ -204,14 +223,14 @@
       </div>
 
       <div class="row">
-        <div class="col-md-12">
-          <div class="col-md-7 form-group">          
+        <div >
+          <div >          
            <div class="input-group">
              <div >
                <h4 class="modal-title" id="exampleModalLabel">Nom pére : </h4>
              </div>
              <div >
-               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.nomPere}}</h4>
+               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.idNaissance.nomPere}}</h4>
              </div>
             </div>
           </div>
@@ -219,14 +238,14 @@
       </div>
 
       <div class="row">
-        <div class="col-md-12">
-          <div class="col-md-7 form-group">          
+        <div >
+          <div >          
            <div class="input-group">
              <div >
                <h4 class="modal-title" id="exampleModalLabel">Prénom pére: </h4>
              </div>
              <div >
-               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.prenomPere}}</h4>
+               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.idNaissance.prenomPere}}</h4>
              </div>
             </div>
           </div>
@@ -234,14 +253,14 @@
       </div>
 
       <div class="row">
-        <div class="col-md-12">
-          <div class="col-md-7 form-group">          
+        <div >
+          <div >          
            <div class="input-group">
              <div >
                <h4 class="modal-title" id="exampleModalLabel">Nom mère: </h4>
              </div>
              <div >
-               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.nomMere}}</h4>
+               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.idNaissance.nomMere}}</h4>
              </div>
             </div>
           </div>
@@ -249,14 +268,14 @@
       </div>
 
       <div class="row">
-        <div class="col-md-12">
-          <div class="col-md-7 form-group">          
+        <div >
+          <div >          
            <div class="input-group">
              <div >
                <h4 class="modal-title" id="exampleModalLabel">Prénom mère: </h4>
              </div>
              <div >
-               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.prenomMere}}</h4>
+               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.idNaissance.prenomMere}}</h4>
              </div>
             </div>
           </div>
@@ -264,14 +283,14 @@
       </div>
 
       <div class="row">
-        <div class="col-md-12">
-          <div class="col-md-7 form-group">          
+        <div >
+          <div >          
            <div class="input-group">
              <div >
                <h4 class="modal-title" id="exampleModalLabel">Mention marginal: </h4>
              </div>
              <div >
-               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.mentionMarginal}}</h4>
+               <h4 class="modal-title" id="exampleModalLabel"> {{this.service.formData.idNaissance.mentionMarginal}}</h4>
              </div>
             </div>
           </div>
@@ -281,7 +300,7 @@
      </div>
 
      <div class="modal-footer">
-      <p class="font-italic">Récapitulatif demande déclaration de naissance .</p>
+      <p class="font-italic">Récapitulatif demande d'acte de naissance .</p>
      </div>
    </div>
 
@@ -289,6 +308,55 @@
 </div>
 </div>
 
+
+ <!-- Modal commentaire -->
+ <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="commentModalLabel"
+ aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="row">
+        <div >
+          <h4 class="modal-title" id="commentModalLabel">Raisons rejet demande d'acte de naissance</h4>
+        </div>
+        <div>
+        </div>
+        <div >
+          <button type="button" class="close" data-dismiss="modal"
+                  aria-label="Close">
+            <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <form #form="ngForm" (submit)="invalideDemande(form)" class="form-horizontal" autocomplete="off" *ngIf="service.formData">
+    <div class="modal-body">
+      <div class="row">
+        <input hidden="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id" />
+
+        <div class="form-group">
+          <div class="col-sm-10">
+            <textarea #commentaire="ngModel" [(ngModel)]="service.formData.commentaire" name="commentaire" rows="5" cols="70" class="form-control" placeholder="Entrer votre commentaire...">     
+            </textarea>
+          </div>
+        </div>
+         
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <input type="submit" [disabled]="form.invalid" value="Envoyer" class="btn btn-success btn-lg active" />
+    </div>
+  </form>
+
+
+  </div>
+
+  
+</div>
+</div>
 
 </div>
 

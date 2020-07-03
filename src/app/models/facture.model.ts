@@ -1,3 +1,6 @@
+import {Demande} from './demande.model';
+import {Declaration} from './declaration.model';
+
 export class Facture {
     
     id: number;
@@ -5,7 +8,8 @@ export class Facture {
     montant: number;
     remise: number;
     tva: number;
-    etat: string;
-    id_demande: number;
+    etat: boolean;
+    idDemande: Demande;
+    idDeclaration: Declaration;
 
 }

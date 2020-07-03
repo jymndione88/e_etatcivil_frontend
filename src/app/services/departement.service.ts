@@ -2,6 +2,9 @@ import { Departement } from '../models/departement.model';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { from, Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +20,14 @@ export class DepartementService {
     readonly serverUrl = environment.apiURL + "/Departement";
 
   loadListeDepartement() {
-    return this.http.get(this.serverUrl)
-      .toPromise()
-      .then(res => this.list = res as Departement[]);
+    return this.http.get(this.serverUrl).
+    pipe(
+       map((data: Departement[]) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
   getDepartementBytype(id_type: number) {

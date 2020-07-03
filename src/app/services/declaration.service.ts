@@ -30,9 +30,16 @@ export class DeclarationService {
     )
   }
 
-//  getType_declarationBytype(id_type: number) {
-  //  return this.http.get(environment.apiURL+"/typedeclarationbytype/"+id_type);
- // }
+  getDeclarationBynum(id: number, num: String) {
+    return this.http.get(this.serverUrl + '/' + id + '/' + num).
+    pipe(
+       map((data: Declaration) => {
+        return data;
+       }), catchError( error => {
+        return throwError( 'Erreur:' + error );
+       })
+    )
+  }
 
   getDeclaration(id: number) {
     return this.http.get(this.serverUrl + '/' + id).
@@ -44,11 +51,7 @@ export class DeclarationService {
        })
     )
   }
-
- // getType_declarationBynum(formData: Declaration) {
-   // return this.http.get(environment.apiURL+"/Type_declarationbynum/"+formData.numero);
- // }
-
+  
   postDeclaration(formData: Declaration) {
     return this.http.post(this.serverUrl, formData).
     pipe(

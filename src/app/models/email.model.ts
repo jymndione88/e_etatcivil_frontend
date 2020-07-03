@@ -1,6 +1,6 @@
 export class Email {
     
-    mail: string;
+    email: string;
     objet: string;
     body: string;
     attach: string;
