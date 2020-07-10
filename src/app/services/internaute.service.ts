@@ -37,6 +37,17 @@ export class InternauteService {
     )
   }
 
+  loadNBCompte(nb: number) {
+    return this.http.get(this.serverConnect  + "/internaute/" + nb + "/" + "user").
+    pipe(
+       map((data: number) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
+  }
+
   login(formData: Internaute) : Observable<any> {
     return this.http.post(this.serverConnect + '/login', {
       login: formData.login,
@@ -68,7 +79,7 @@ export class InternauteService {
   postInternaute(formData: Internaute) {
     return this.http.post(this.serverUrl, formData).
     pipe(
-       map((data: Internaute[]) => {
+       map((data: Internaute) => {
          return data;
        }), catchError( error => {
          return throwError( 'Erreur:' + error );

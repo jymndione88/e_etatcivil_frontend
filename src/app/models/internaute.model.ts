@@ -8,7 +8,7 @@ export class Internaute {
     email: string;
     password: string;
     resetPassword: string;
-    //active: boolean;
+    active: boolean;
     idPersonne: Personne;
     roles: Role[];
 

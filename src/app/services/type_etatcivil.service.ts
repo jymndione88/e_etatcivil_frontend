@@ -52,7 +52,7 @@ export class Type_etatcivilService {
   postType_etatcivil(formData: Type_etatcivil) {
     return this.http.post(this.serverUrl, formData).
     pipe(
-       map((data: Type_etatcivil[]) => {
+       map((data: Type_etatcivil) => {
          return data;
        }), catchError( error => {
          return throwError( 'Erreur:' + error );

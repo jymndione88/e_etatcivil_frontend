@@ -54,7 +54,7 @@ export class Mode_paiementService {
   postMode_paiement(formData: Mode_paiement) {
     return this.http.post(this.serverUrl, formData).
     pipe(
-       map((data: Mode_paiement[]) => {
+       map((data: Mode_paiement) => {
          return data;
        }), catchError( error => {
          return throwError( 'Erreur:' + error );

@@ -42,11 +42,14 @@ export class TetatcivilAddComponent implements OnInit {
  ajoutTypedelaration(form: NgForm) {
  
    this.service.postType_etatcivil(form.value).subscribe((res)=>{
-  });
+
+    form.value.id= res.id;
   let data= form.value;
   this.service.list.push(data);
    this.resetForm(form);
    this.toastr.successToastr('Ajouter avec succées!', 'Type Etat civil!');
+  });
+  
  }
 
  updateTypedelaration(form: NgForm) {

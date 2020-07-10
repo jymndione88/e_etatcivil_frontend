@@ -30,28 +30,52 @@ export class CommuneService {
     )
   }
 
-  getCommuneBytype(id_type: number) {
-    return this.http.get(environment.apiURL+"/communebytype/"+id_type);
-  }
+ // getCommuneBytype(id_type: number) {
+   // return this.http.get(environment.apiURL+"/communebytype/"+id_type);
+ // }
 
   getCommune(id: number) {
-    return this.http.get(`${this.serverUrl}/${id}`);
-  }
-
-  getCommuneBynum(formData: Commune) {
-   // return this.http.get(environment.apiURL+"/Communebynum/"+formData.numero);
+    return this.http.get(this.serverUrl + '/' + id).
+    pipe(
+       map((data: Commune) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
   postCommune(formData: Commune) {
-    return this.http.post(this.serverUrl, formData);
+    return this.http.post(this.serverUrl, formData).
+    pipe(
+       map((data: Commune) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
   putCommune(formData: Commune) {
-    return this.http.put(`${this.serverUrl}/${formData.id}`, formData);
+    return this.http.put(this.serverUrl + '/' + formData.id, formData).
+    pipe(
+       map((data:any) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
   deleteCommune(id: number) {
-    return this.http.delete(`${this.serverUrl}/${id}`);
+    return this.http.delete(this.serverUrl + '/' + id).
+    pipe(
+       map((data:any) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
 }

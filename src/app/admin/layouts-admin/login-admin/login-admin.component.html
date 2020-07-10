@@ -1,13 +1,13 @@
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <a href="#">Service-Public<span>.sn</span></a>
   </div>
 
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Démarrer votre session</p>
 
-    <form data-toggle="validator">
+    <form class="form-signin" id="myForm1" role="form1" data-toggle="validator" #form1="ngForm" (submit)="login(form1)">
       <div class="form-group" data-toggle="validator">  
         <div class="input-group">  
           <div class="input-group-prepend">  
@@ -17,6 +17,7 @@
           </div>  
           <input id="email" [(ngModel)]="email"
           required name="email" type="text" class="form-control text-dark" placeholder="Email">  
+          <br />
           <div class="help-block with-errors text-danger"></div>
 										<br />
         </div>  
@@ -26,18 +27,19 @@
         <div class="input-group" data-toggle="validator">  
           <div class="input-group-prepend">  
             <span class="input-group-text">  
-              <i class="fa fa-envelope"></i>  
+              <i class="fa fa-key"></i>  
             </span>  
           </div>  
           <input id="password" [(ngModel)]="password"
-          required name="password" type="password" class="form-control text-dark" placeholder="Password">  
+          required name="password" type="password" class="form-control text-dark" placeholder="Mot de passe">  
+          <br />
           <div class="help-block with-errors text-danger"></div>
 										<br />
         </div>  
       </div>  
 
         <div class="col-xs-4">
-          <button class="btn btn-primary btn-block btn-flat" (click)="login()">Se connecter</button>
+          <button class="btn btn-primary btn-block btn-flat" type="submit">Se connecter</button>
         </div>
         <!-- /.col -->
       

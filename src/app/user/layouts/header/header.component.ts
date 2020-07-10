@@ -35,14 +35,15 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  @ViewChild('closeModal') private closeModal: ElementRef;
+  @ViewChild('close') private close: ElementRef;
   public hideModel() {
-      this.closeModal.nativeElement.click();      
+      this.close.nativeElement.click();      
   }
   
   reloadPage() {
     window.location.reload();
   }
+
 
   login(form: NgForm){
     //console.log("login");
@@ -86,7 +87,7 @@ export class HeaderComponent implements OnInit {
 
   inscription(form: NgForm){
     console.log("inscription");
-    console.log(form.value);
+   // console.log(form.value);
 
      this.inscri= new SignupRequest();
      this.inscri.login= form.value.incriIdentifiant;

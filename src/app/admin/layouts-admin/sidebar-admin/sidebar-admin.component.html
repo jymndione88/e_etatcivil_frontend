@@ -2,10 +2,10 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="/admin" class="brand-link">
       <img src="./../../../../assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Service.SN</span>
+      <span class="brand-text font-weight-light">Service-Public<span>.sn</span></span>
     </a>
 
     <!-- Sidebar -->
@@ -13,7 +13,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="./../../../../assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="./../../../../assets/dist/img/jy.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Jean Yves NDIONE</a>
@@ -25,64 +25,11 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-chart-pie"></i>
-                  <p>
-                    Nomenclature
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a routerLink="/composant/typedeclaration" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Type déclaration</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a routerLink='/composant/typecommune' class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Type commune</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a routerLink='/composant/typeetatcivil' class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Type Etat civil</p>
-                    </a>
-                  </li>
-                  
-                </ul>
-              </li>
-              
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-table"></i>
-                  <p>
-                  Déclaration
-                    <i class="fas fa-angle-left right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a routerLink='/composant/declarationnaiss' class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Naissance</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a routerLink='/composant/declarationnaiss' class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Décès</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
 
+               
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-table"></i>
+                  <i class="nav-icon fas fa-list-alt"></i>
                   <p>
                   Demande acte civil
                     <i class="fas fa-angle-left right"></i>
@@ -91,152 +38,157 @@
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a routerLink='/composant/demandenaiss' class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
+                      <i class="far fa-bookmark nav-icon"></i>
                       <p>Naissance</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a routerLink='/composant/demandemariage' class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
+                      <i class="far fa-book nav-icon"></i>
                       <p>Mariage</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a routerLink='/composant/demandedeces' class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
+                      <i class="far fa-bars nav-icon"></i>
                       <p>Décès</p>
                     </a>
                   </li>
                 </ul>
               </li>
 
-
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Charts
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>ChartJS</p>
+              
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-list-ol"></i>
+                  <p>
+                  Déclaration
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a routerLink='/composant/declarationnaiss' class="nav-link">
+                      <i class="far fa-th-list nav-icon"></i>
+                      <p>Naissance</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink='/composant/declarationdeces' class="nav-link">
+                      <i class="far fa-calendar-check-o nav-icon"></i>
+                      <p>Décès</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Forms
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/forms/general.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>General Elements</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Advanced Elements</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/editors.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editors</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/validation.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Validation</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-         
-          <li class="nav-header">Procédure</li>
-          <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
-              <i class="nav-icon fas fa-calendar-alt"></i>
-              <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-        
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Pages
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-           
-              <li class="nav-item">
-                <a href="pages/examples/projects.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projects</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project-add.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Add</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project-edit.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Edit</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project-detail.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Detail</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/contacts.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Contacts</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-plus-square"></i>
-              <p>
-                Extras
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/examples/forgot-password.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Forgot Password</p>
-                </a>
-              </li>
-            
-           
-            </ul>
-          </li>
        
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>
+                    Gestion utilisateurs
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a routerLink="/composant/gestionutilisateur" class="nav-link">
+                      <i class="far fa-user nav-icon"></i>
+                      <p>Utilisateurs</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink='/composant/gestionrole' class="nav-link">
+                      <i class="far fa-user-plus nav-icon"></i>
+                      <p>Roles</p>
+                    </a>
+                  </li>
+                
+                </ul>
+              </li>
+
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-building"></i>
+                  <p>
+                    Gestion Etat civil
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a routerLink="/composant/gestioncommune" class="nav-link">
+                      <i class="far fa-edit nav-icon"></i>
+                      <p>Communes</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink='/composant/gestionetat' class="nav-link">
+                      <i class="far fa-university nav-icon"></i>
+                      <p>Etat civil</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink='/composant/gestionlieu' class="nav-link">
+                      <i class="far fa-hospital-o nav-icon"></i>
+                      <p>Lieu hospitalier</p>
+                    </a>
+                  </li>
+                
+                </ul>
+              </li>
+
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-calculator"></i>
+                  <p>
+                    Paiement/ livraison
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a routerLink="/composant/gestionpaiement" class="nav-link">
+                      <i class="far fa-check-square nav-icon"></i>
+                      <p>Mode de paiement</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink='/composant/gestionlivraison' class="nav-link">
+                      <i class="far fa-file-pdf nav-icon"></i>
+                      <p>Mode de livraison</p>
+                    </a>
+                  </li>
+                  
+                </ul>
+              </li>
+
+
+               <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-database"></i>
+                  <p>
+                    Nomenclatures
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a routerLink="/composant/typedeclaration" class="nav-link">
+                      <i class="far fa-filter nav-icon"></i>
+                      <p>Type déclaration</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink='/composant/typeetatcivil' class="nav-link">
+                      <i class="far fa-gears nav-icon"></i>
+                      <p>Type Etat civil</p>
+                    </a>
+                  </li>
+                  
+                </ul>
+              </li>
+              
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

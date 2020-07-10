@@ -1,0 +1,31 @@
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">AJOUT / MODIFICATION Mode paiement </h3>
+    <a (click)="this.resetForm()" class="fa-pull-right btn btn-default">
+      <i class="fa fa-refresh"></i>
+    </a>
+  </div>
+  <form #form="ngForm" (submit)="onSubmit(form)" class="form-horizontal" autocomplete="off" *ngIf="service.formData">
+    <div class="box-body">
+      <input hidden="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id">
+
+      <div class="form-group">
+        <label for="mode" class="col-sm-2 control-label">Mode</label>
+        <div class="col-sm-10">
+          <input class="form-control" name="mode" #mode="ngModel" [(ngModel)]="service.formData.mode"
+            placeholder="Mode" required>
+          <div class="validation-error" *ngIf="mode.invalid && mode.touched">Ce champs est requis</div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+      <div class="form-group">
+        <div class="col-md-12">
+          <input type="submit" [disabled]="form.invalid" value="Valider" class="btn btn-info btn-block" />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

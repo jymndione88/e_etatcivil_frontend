@@ -37,10 +37,10 @@
 						<li><a href="#" data-toggle="modal" data-target="#modalInscription">Inscription</a></li>
 					</ul>
 				</div>
-				<div *ngIf="isLoggedIn" class="log_reg d-flex flex-row align-items-center justify-content-start">
-					<ul class="d-flex flex-row align-items-start justify-content-start">
-						<li><a href="#" class="nav-link" >Bienvenue : {{ log }}</a></li>
-						<li><a href class="nav-link" (click)="logout()">Déconnexion</a></li>
+				<div *ngIf="isLoggedIn" class="d-flex flex-row-reverse">
+					<ul class="d-flex flex-row ">
+						<li><a href="#" class="nav-link" style="color: white;">Bienvenue : {{ log }}</a></li> /
+						<li><a href class="nav-link" style="color: white;"(click)="logout()">Déconnexion</a></li>
 					</ul>
 				</div>
 			</div>
@@ -109,7 +109,7 @@ aria-hidden="true">
 <!-- Modal -->
 
 	<!-- Modal inscription -->
-	<div class="modal fade" id="modalInscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+	<div  class="modal fade" id="modalInscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 	aria-hidden="true">
 	<div class="modal-dialog" role="document">
 	  <!--Content-->
@@ -117,7 +117,7 @@ aria-hidden="true">
 		
 		<div id="logreg-forms">
 
-			<button #closeModal (click)="hideModel();" type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<button #close id="close" type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
 		<form class="form-signin" id="myForm2" role="form2" data-toggle="validator" #form2="ngForm" (submit)="inscription(form2)">

@@ -1,12 +1,10 @@
-import {Arrondissement} from './arrondissement.model';
-import {Type_commune} from './type_commune.model';
+import {Departement} from './departement.model';
 
 export class Commune {
     
     id: number;
     code: string;
     libelle: string;
-    idArrondissement: Arrondissement;
-    idTypeCommune: Type_commune;
+    idDepartement: Departement;
 
 }

@@ -33,11 +33,6 @@ export class LoginAdminComponent implements OnInit {
     window.location.reload();
   }
 
-  logout() {
-    this.tokenStorage.signOut();
-    window.location.reload();
-  }
-
   resetForm(form?: NgForm) {
     if (form != null) form.resetForm();
   }
@@ -45,12 +40,12 @@ export class LoginAdminComponent implements OnInit {
 
   login(form: NgForm){
 
-    //console.log("login");
+    console.log("login admin");
     //console.log(form.value);
-
+   
     this.internaute= new Internaute();
-    this.internaute.email= form.value.logEmail;
-    this.internaute.password= form.value.logPassword;
+    this.internaute.email= form.value.email;
+    this.internaute.password= form.value.password;
     this.internaute.login= "";
    
     this.serv_internaute.login(this.internaute).subscribe(
@@ -71,7 +66,6 @@ export class LoginAdminComponent implements OnInit {
       }
     }
 
-    console.log(this.admin);
     if(this.admin){
       console.log("admin");
 
@@ -84,7 +78,7 @@ export class LoginAdminComponent implements OnInit {
 },
 err => {
   console.log(err.error.message);
-  this.toastr.errorToastr('Email ou mot de passe incorrect!', 'Connexion compte!');
+  this.toastr.errorToastr('Email ou mot de passe incorrect!', 'Connexion admin!');
 }
 ); 
 

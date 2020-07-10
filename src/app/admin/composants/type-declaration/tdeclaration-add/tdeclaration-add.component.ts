@@ -22,12 +22,13 @@ export class TdeclarationAddComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    if (form.value.id == null){
-     this.ajoutTypedelaration(form);
+    
+   if (form.value.id == null){
+     this.ajoutTypedelaration(form);  
     }
-     else{
-       this.updateTypedelaration(form);
-     }
+    else{
+     this.updateTypedelaration(form);
+    }
 
    }
 
@@ -43,11 +44,14 @@ export class TdeclarationAddComponent implements OnInit {
  ajoutTypedelaration(form: NgForm) {
  
    this.service.postType_declaration(form.value).subscribe((res)=>{
+    
+    form.value.id= res.id;
+    let data= form.value;
+    this.service.list.push(data);
+     this.resetForm(form);
+     this.toastr.successToastr('Ajouter avec succées!', 'Type déclaration!');
   });
-  let data= form.value;
-  this.service.list.push(data);
-   this.resetForm(form);
-   this.toastr.successToastr('Ajouter avec succées!', 'Type déclaration!');
+ 
  }
 
  updateTypedelaration(form: NgForm) {

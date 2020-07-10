@@ -17,7 +17,7 @@ export class DepartementService {
 
   constructor(private http: HttpClient
     ) { }
-    readonly serverUrl = environment.apiURL + "/Departement";
+    readonly serverUrl = environment.apiURL + "/departement";
 
   loadListeDepartement() {
     return this.http.get(this.serverUrl).
@@ -30,28 +30,48 @@ export class DepartementService {
     )
   }
 
-  getDepartementBytype(id_type: number) {
-    return this.http.get(environment.apiURL+"/Departementbytype/"+id_type);
-  }
-
   getDepartement(id: number) {
-    return this.http.get(`${this.serverUrl}/${id}`);
-  }
-
-  getDepartementBynum(formData: Departement) {
-   // return this.http.get(environment.apiURL+"/Departementbynum/"+formData.numero);
+    return this.http.get(this.serverUrl + '/' + id).
+    pipe(
+       map((data: Departement) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
   postDepartement(formData: Departement) {
-    return this.http.post(this.serverUrl, formData);
+    return this.http.post(this.serverUrl, formData).
+    pipe(
+       map((data: Departement) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
   putDepartement(formData: Departement) {
-    return this.http.put(`${this.serverUrl}/${formData.id}`, formData);
+    return this.http.put(this.serverUrl + '/' + formData.id, formData).
+    pipe(
+       map((data:any) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
   deleteDepartement(id: number) {
-    return this.http.delete(`${this.serverUrl}/${id}`);
+    return this.http.delete(this.serverUrl + '/' + id).
+    pipe(
+       map((data:any) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
 }

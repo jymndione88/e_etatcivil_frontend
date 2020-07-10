@@ -1,0 +1,79 @@
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">AJOUT / MODIFICATION utilisateur </h3>
+    <a (click)="this.resetForm()" class="fa-pull-right btn btn-default">
+      <i class="fa fa-refresh"></i>
+    </a>
+  </div>
+  <form #form="ngForm" (submit)="onSubmit(form)" class="form-horizontal" autocomplete="off" *ngIf="service.formData">
+    <div class="box-body">
+      <input hidden="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id">
+
+      <div class="form-group">
+        <label for="nom" class="col-sm-2 control-label">Nom</label>
+        <div class="col-sm-10">
+          <input name="nom" #nom="ngModel" [(ngModel)]="service.formData.nom" placeholder="Nom" class="form-control"
+            required>
+          <div class="validation-error" *ngIf="nom.invalid && nom.touched">Ce champs est requis</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="prenom" class="col-sm-2 control-label">Prénoms</label>
+        <div class="col-sm-10">
+          <input class="form-control" name="prenom" #prenom="ngModel" [(ngModel)]="service.formData.prenom"
+            placeholder="prénoms" required>
+          <div class="validation-error" *ngIf="prenom.invalid && prenom.touched">Ce champs est requis</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="datenaiss" class="col-sm-2 control-label">Date naissance</label>
+        <div class="col-sm-10">
+          <input class="form-control" name="datenaiss" #datenaiss="ngModel" [(ngModel)]="service.formData.datenaiss"
+            placeholder="Date" required>
+          <div class="validation-error" *ngIf="datenaiss.invalid && datenaiss.touched">Ce champs est requis</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lieunaiss" class="col-sm-2 control-label">Lieu naissance</label>
+        <div class="col-sm-10">
+          <input class="form-control" name="lieunaiss" #lieunaiss="ngModel" [(ngModel)]="service.formData.lieunaiss"
+            placeholder="prénoms" required>
+          <div class="validation-error" *ngIf="lieunaiss.invalid && lieunaiss.touched">Ce champs est requis</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lieunaiss" class="col-sm-2 control-label">Lieu naissance</label>
+        <div class="col-sm-10">
+          <input class="form-control" name="lieunaiss" #lieunaiss="ngModel" [(ngModel)]="service.formData.lieunaiss"
+            placeholder="prénoms" required>
+          <div class="validation-error" *ngIf="lieunaiss.invalid && lieunaiss.touched">Ce champs est requis</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lieunaiss" class="col-sm-2 control-label">Lieu naissance</label>
+        <div class="col-sm-10">
+          <input class="form-control" name="lieunaiss" #lieunaiss="ngModel" [(ngModel)]="service.formData.lieunaiss"
+            placeholder="prénoms" required>
+          <div class="validation-error" *ngIf="lieunaiss.invalid && lieunaiss.touched">Ce champs est requis</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="nin" class="col-sm-2 control-label">NIN</label>
+        <div class="col-sm-10">
+          <input class="form-control" name="nin" #nin="ngModel" [(ngModel)]="service.formData.nin"
+            placeholder="prénoms" required>
+          <div class="validation-error" *ngIf="nin.invalid && nin.touched">Ce champs est requis</div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+      <div class="form-group">
+        <div class="col-md-12">
+          <input type="submit" [disabled]="form.invalid" value="Valider" class="btn btn-info btn-block" />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

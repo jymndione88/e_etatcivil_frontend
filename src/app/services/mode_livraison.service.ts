@@ -54,7 +54,7 @@ export class Mode_livraisonService {
   postMode_livraison(formData: Mode_livraison) {
     return this.http.post(this.serverUrl, formData).
     pipe(
-       map((data: Mode_livraison[]) => {
+       map((data: Mode_livraison) => {
          return data;
        }), catchError( error => {
          return throwError( 'Erreur:' + error );

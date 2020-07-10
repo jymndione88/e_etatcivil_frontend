@@ -33,6 +33,17 @@ export class DemandeService {
       )
     }
 
+    loadListeDemande() {
+      return this.http.get(this.serverUrl).
+      pipe(
+         map((data: Demande[]) => {
+           return data;
+         }), catchError( error => {
+           return throwError( 'Erreur:' + error );
+         })
+      )
+    }
+
   loadListeDemandeParNature(nat: string) {
     return this.http.get(this.serverUrl + '/' + nat + '/liste').
     pipe(
@@ -44,9 +55,16 @@ export class DemandeService {
     )
   }
 
- // getDemandeBytype(id_type: number) {
-   // return this.http.get(environment.apiURL+"/Demandebytype/"+id_type);
- // }
+  loadNbDemandeParType(ty: string) {
+    return this.http.get(this.serverUrl + '/' + 1 + '/' + 2 + '/' + ty ).
+    pipe(
+       map((data: number) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
+  }
 
   getDemande(id: number) {
     return this.http.get(this.serverUrl + '/' + id).

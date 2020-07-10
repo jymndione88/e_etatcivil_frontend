@@ -15,7 +15,6 @@ export class Naissance {
     nomMere: string;
     prenomMere: string;
     mentionMarginal: string;
-
     idJugement: Jugement;
     idDeclaration: Declaration;
     idLieuHospitalier: Lieu_hospitalier;

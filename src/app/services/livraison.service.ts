@@ -29,9 +29,16 @@ export class LivraisonService {
     )
   }
 
- // getLivraisonBytype(id_type: number) {
-   // return this.http.get(environment.apiURL+"/Livraisonbytype/"+id_type);
-  //}
+  getLivraisonBytype(id: number, num: number, type: string) {
+    return this.http.get(this.serverUrl + '/' + id + '/' + num + '/' + type).
+    pipe(
+       map((data: Livraison) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
+  }
 
   getLivraison(id: number) {
     return this.http.get(this.serverUrl + '/' + id).
@@ -43,10 +50,6 @@ export class LivraisonService {
        })
     )
   }
-
- // getLivraisonBynum(formData: Livraison) {
-    //return this.http.get(environment.apiURL+"/Livraisonbynum/"+formData.numero);
-  //}
 
   postLivraison(formData: Livraison) {
     return this.http.post(this.serverUrl, formData).

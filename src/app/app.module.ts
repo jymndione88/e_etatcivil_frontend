@@ -14,8 +14,6 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { LoginAppComponent } from './login-app/login-app.component';
-
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http'; 
@@ -44,9 +42,6 @@ import { LayoutsAdminRoutingModule } from './admin/layouts-admin/layouts-admin-r
 import { TypeEtatcivilComponent } from './admin/composants/type-etatcivil/type-etatcivil.component';
 import { TetatcivilAddComponent } from './admin/composants/type-etatcivil/tetatcivil-add/tetatcivil-add.component';
 import { TetatcivilListComponent } from './admin/composants/type-etatcivil/tetatcivil-list/tetatcivil-list.component';
-import { TypeCommuneComponent } from './admin/composants/type-commune/type-commune.component';
-import { TcommuneAddComponent } from './admin/composants/type-commune/tcommune-add/tcommune-add.component';
-import { TcommuneListComponent } from './admin/composants/type-commune/tcommune-list/tcommune-list.component';
 import { DeclarationNaissanceComponent } from './admin/composants/declaration-naissance/declaration-naissance.component';
 import { DeclarationDecesComponent } from './admin/composants/declaration-deces/declaration-deces.component';
 import { DemandeNaissanceComponent } from './admin/composants/demande-naissance/demande-naissance.component';
@@ -54,13 +49,38 @@ import { DemandeMariageComponent } from './admin/composants/demande-mariage/dema
 import { DemandeDecesComponent } from './admin/composants/demande-deces/demande-deces.component';
 
 import { authInterceptorProviders } from './services/auth.interceptor';
+import { GestionUtilisateurComponent } from './admin/composants/gestion-utilisateur/gestion-utilisateur.component';
+import { GutilisateurAddComponent } from './admin/composants/gestion-utilisateur/gutilisateur-add/gutilisateur-add.component';
+import { GutilisateurListComponent } from './admin/composants/gestion-utilisateur/gutilisateur-list/gutilisateur-list.component';
+import { GestionRoleComponent } from './admin/composants/gestion-role/gestion-role.component';
+import { GroleAddComponent } from './admin/composants/gestion-role/grole-add/grole-add.component';
+import { GroleListComponent } from './admin/composants/gestion-role/grole-list/grole-list.component';
+import { GestionCommuneComponent } from './admin/composants/gestion-commune/gestion-commune.component';
+import { GcommuneAddComponent } from './admin/composants/gestion-commune/gcommune-add/gcommune-add.component';
+import { GcommuneListComponent } from './admin/composants/gestion-commune/gcommune-list/gcommune-list.component';
+import { GestionEtatComponent } from './admin/composants/gestion-etat/gestion-etat.component';
+import { GetatAddComponent } from './admin/composants/gestion-etat/getat-add/getat-add.component';
+import { GetatListComponent } from './admin/composants/gestion-etat/getat-list/getat-list.component';
+import { GestionLieuComponent } from './admin/composants/gestion-lieu/gestion-lieu.component';
+import { GlieuAddComponent } from './admin/composants/gestion-lieu/glieu-add/glieu-add.component';
+import { GlieuListComponent } from './admin/composants/gestion-lieu/glieu-list/glieu-list.component';
+import { GestionPaiementComponent } from './admin/composants/gestion-paiement/gestion-paiement.component';
+import { GpaiementAddComponent } from './admin/composants/gestion-paiement/gpaiement-add/gpaiement-add.component';
+import { GpaiementListComponent } from './admin/composants/gestion-paiement/gpaiement-list/gpaiement-list.component';
+import { GestionLivraisonComponent } from './admin/composants/gestion-livraison/gestion-livraison.component';
+import { GlivraisonAddComponent } from './admin/composants/gestion-livraison/glivraison-add/glivraison-add.component';
+import { GlivraisonListComponent } from './admin/composants/gestion-livraison/glivraison-list/glivraison-list.component';
+import { NaissanceComponent } from './admin/composants/declaration-naissance/naissance/naissance.component';
+import { DecesComponent } from './admin/composants/declaration-deces/deces/deces.component';
+import { DemDecesComponent } from './admin/composants/demande-deces/dem-deces/dem-deces.component';
+import { DemNaissanceComponent } from './admin/composants/demande-naissance/dem-naissance/dem-naissance.component';
+import { DemMariageComponent } from './admin/composants/demande-mariage/dem-mariage/dem-mariage.component';
 
 @NgModule({
   declarations: [
 
     AppComponent,
-    LoginAppComponent,
-
+    
     HeaderComponent,
     FooterComponent,
     HomeComponent,
@@ -85,14 +105,37 @@ import { authInterceptorProviders } from './services/auth.interceptor';
     TypeEtatcivilComponent,
     TetatcivilAddComponent,
     TetatcivilListComponent,
-    TypeCommuneComponent,
-    TcommuneAddComponent,
-    TcommuneListComponent,
     DeclarationNaissanceComponent,
     DeclarationDecesComponent,
     DemandeNaissanceComponent,
     DemandeMariageComponent,
     DemandeDecesComponent,
+    GestionUtilisateurComponent,
+    GutilisateurAddComponent,
+    GutilisateurListComponent,
+    GestionRoleComponent,
+    GroleAddComponent,
+    GroleListComponent,
+    GestionCommuneComponent,
+    GcommuneAddComponent,
+    GcommuneListComponent,
+    GestionEtatComponent,
+    GetatAddComponent,
+    GetatListComponent,
+    GestionLieuComponent,
+    GlieuAddComponent,
+    GlieuListComponent,
+    GestionPaiementComponent,
+    GpaiementAddComponent,
+    GpaiementListComponent,
+    GestionLivraisonComponent,
+    GlivraisonAddComponent,
+    GlivraisonListComponent,
+    NaissanceComponent,
+    DecesComponent,
+    DemDecesComponent,
+    DemNaissanceComponent,
+    DemMariageComponent,
 
   ],
   imports: [

@@ -106,12 +106,12 @@
 
 				<div class="modal-header">
 					<h5 class="modal-title">Demande acte naissance</h5>
-					<button #closeModal (click)="hideModel();" type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button #closeA id="closeA" type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 
-				<div lass="modal-body mt-5 mb-5">
+				<div >
 					<div id="stepwizard">
 						<ul>
 							<li><a href="#step1">Rechercher commune<br /> <small>Motif demende</small> </a></li>
@@ -160,8 +160,8 @@
 											class="form-control text-dark" required>
 											<option disabled selected value> -- séléctionner -- </option>
 											<option *ngFor="let com of listCommune" [ngValue]="com.libelle"
-												value="{{com.id}}">
-												{{com.libelle}}</option>
+												value=" {{com.libelle}}">
+												{{com.libelle}} </option>
 										</select>
 										<div class="help-block with-errors text-danger"></div>
 										<br />
@@ -174,7 +174,7 @@
 									<div class="form-group">
 										Type d'acte
 										<hr>
-										La commune : {{commune}} n’est pas en mesure de recevoir votre demande d’acte d’état
+										La commune : <strong> {{commune}} </strong> n’est pas en mesure de recevoir votre demande d’acte d’état
 										civil de
 										manière dématérialisée. Vous pouvez cependant compléter le formulaire de demande
 										d’acte,
@@ -293,7 +293,7 @@
 										<div class="row">
 											<div class="col">
 												<label for="pays">Pays</label>
-												<select  id="paysA" name="paysA" [(ngModel)]="paysA" placeholder="Pays"
+												<select id="paysA" name="paysA" [(ngModel)]="paysA" placeholder="Pays"
 											class="form-control text-dark" required>
 											<option disabled selected value=""> -- séléctionner -- </option>
 											<option value="France">France</option>
@@ -335,10 +335,10 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col">
-												Motif de la demande: {{motif}}
+												Motif de la demande: <strong> {{motif}} </strong> 
 											</div>
 											<div class="col">
-												Commune concernée: {{commune}}
+												Commune concernée: <strong> {{commune}} </strong>
 											</div>
 										</div>
 										<hr>
@@ -347,18 +347,18 @@
 										<hr>
 										<div class="row">
 											<div class="col">
-												Type d'acte: Naissance
+												Type d'acte: <strong> Naissance </strong> 
 											</div>
 											<div class="col">
-												Qualité du demandeur: {{qualite}}
+												Qualité du demandeur: <strong> {{qualite}} </strong>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col">
-												Nature de l'acte: {{nature}}
+												Nature de l'acte: <strong> {{nature}} </strong>
 											</div>
 											<div class="col">
-												Nombre d'exemplaire: {{nombre}}
+												Nombre d'exemplaire: <strong> {{nombre}} </strong>
 											</div>
 										</div>
 										<hr>
@@ -367,23 +367,23 @@
 										<hr>
 										<div class="row">
 											<div class="col">
-												Civilité: {{civilite}}
+												Civilité: <strong> {{civilite}} </strong>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col">
-												Nom: {{nom}}
+												Nom: <strong> {{nom}} </strong>
 											</div>
 											<div class="col">
-												Prénoms: {{prenom}}
+												Prénoms: <strong> {{prenom}} </strong>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col">
-												Numéro régistre: {{numero}}
+												Numéro régistre: <strong> {{numero}} </strong>
 											</div>
 											<div class="col">
-												Date de naissance: {{datenaiss}}
+												Date de naissance: <strong> {{datenaiss}} </strong>
 											</div>
 										</div>
 										<div class="row">
@@ -393,10 +393,10 @@
 										</div>
 										<div class="row">
 											<div class="col">
-												Pays : {{pays}}
+												Pays : <strong> {{paysA}} </strong>
 											</div>
 											<div class="col">
-												Nationalité: {{nationalite}}
+												Nationalité: <strong> {{nationalite}} </strong>
 											</div>
 										</div>
 										
@@ -529,12 +529,12 @@
 
 				<div class="modal-header">
 					<h5 class="modal-title">Déclaration de naissance</h5>
-					<button #closeModal (click)="hideModel();" type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button #close1 id="close1" type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 
-				<div lass="modal-body mt-5 mb-5">
+				<div >
 					<div id="stepwizard1">
 						<ul>
 							<li><a href="#step1">Rechercher commune<br /> <small>Nature declaration</small> </a></li>
@@ -564,8 +564,8 @@
 											class="form-control text-dark" required>
 											<option disabled selected value> -- séléctionner -- </option>
 											<option *ngFor="let com of listCommune" [ngValue]="com.libelle"
-												value="{{com.id}}">
-												{{com.libelle}}</option>
+												value="{{com.libelle}}">
+												 {{com.libelle}}</option>
 										</select>
 										<div class="help-block with-errors text-danger"></div>
 										<br />
@@ -643,9 +643,9 @@
 												<select id="lieunaiss1" name="lieunaiss1" [(ngModel)]="lieunaiss1"
 												class="form-control text-dark" required>
 												<option disabled selected value> -- séléctionner -- </option>
-												<option *ngFor="let com of listHospitalier" [ngValue]="com.id"
-													value="{{com.id}}">
-													{{com.libelle}}</option>
+												<option *ngFor="let com of listHospitalier" [ngValue]="com.libelle"
+													value="{{com.libelle}}">
+													{{com.libelle}} </option>
 											</select>
 													
 											</div>
@@ -777,7 +777,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col">
-												Commune concernée: {{commune1}}
+												Commune concernée: <strong> {{commune1}} </strong>
 											</div>
 										</div>
 										<hr>
@@ -789,7 +789,7 @@
 												Type de déclaration: Naissance
 											</div>
 											<div class="col">
-												Qualité du déclarant: {{qualite1}}
+												Qualité du déclarant: <strong> {{qualite1}} </strong>
 											</div>
 										</div>
 										
@@ -799,20 +799,23 @@
 										<hr>
 										<div class="row">
 											<div class="col">
-												Civilité: {{genre1}}
+												Civilité: <strong> {{genre1}} </strong>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col">
-												Nom: {{nom1}}
+												Nom: <strong> {{nom1}} </strong>
 											</div>
 											<div class="col">
-												Prénoms: {{prenom1}}
+												Prénoms: <strong> {{prenom1}} </strong>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col">
-												Date de naissance: {{datenaiss1}}
+												Date de naissance: <strong> {{datenaiss1}} </strong>
+											</div>
+											<div class="col">
+												Lieu de naissance: <strong> {{lieunaiss1}} </strong>
 											</div>
 										</div>
 										<div class="row">
@@ -822,10 +825,10 @@
 										</div>
 										<div class="row">
 											<div class="col">
-												Nom : {{nom_pere1}}
+												Nom : <strong> {{nom_pere1}} </strong>
 											</div>
 											<div class="col">
-												Prénoms: {{prenom_pere1}}
+												Prénoms: <strong> {{prenom_pere1}} </strong>
 											</div>
 										</div>
 										<div class="row">
@@ -835,10 +838,10 @@
 										</div>
 										<div class="row">
 											<div class="col">
-												Nom: {{nom_mere1}}
+												Nom: <strong> {{nom_mere1}} </strong>
 											</div>
 											<div class="col">
-												Prénoms: {{prenom_mere1}}
+												Prénoms: <strong> {{prenom_mere1}} </strong>
 											</div>
 										</div>
 
@@ -972,12 +975,12 @@
 
 				<div class="modal-header">
 					<h5 class="modal-title">Demande acte mariage</h5>
-					<button #closeModal (click)="hideModel();" type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button #close2 id="close2" type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 
-				<div lass="modal-body mt-5 mb-5">
+				<div >
 					<div id="stepwizard2">
 						<ul>
 							<li><a href="#step1">Rechercher commune<br /> <small>Motif demende</small> </a></li>
@@ -1025,9 +1028,9 @@
 										<select id="commune2" name="commune2" [(ngModel)]="commune2"
 											class="form-control text-dark" required>
 											<option disabled selected value> -- séléctionner -- </option>
-											<option *ngFor="let com of listCommune" [ngValue]="com.id"
-												value="{{com.id}}">
-												{{com.libelle}}</option>
+											<option *ngFor="let com of listCommune" [ngValue]="com.libelle"
+												value="{{com.libelle}}">
+												 {{com.libelle}} </option>
 										</select>
 										<div class="help-block with-errors text-danger"></div>
 										<br />
@@ -1040,7 +1043,7 @@
 									<div class="form-group">
 										Type d'acte
 										<hr>
-										La commune : {{commune2}} n’est pas en mesure de recevoir votre demande d’acte d’état
+										La commune : <strong> {{commune2}} </strong> n’est pas en mesure de recevoir votre demande d’acte d’état
 										civil de
 										manière dématérialisée. Vous pouvez cependant compléter le formulaire de demande
 										d’acte,
@@ -1165,8 +1168,8 @@
 												class="form-control text-dark" required>
 												<option disabled selected value> -- séléctionner -- </option>
 												<option *ngFor="let com of listHospitalier" [ngValue]="com.libelle"
-													value="{{com.id}}">
-													{{com.libelle}}</option>
+													value="{{com.libelle}}">
+													{{com.libelle}} </option>
 											</select>
 												<div class="help-block with-errors text-danger"></div>
 											</div>
@@ -1218,10 +1221,10 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col">
-												Motif de la demande: {{motif2}}
+												Motif de la demande: <strong> {{motif2}} </strong>
 											</div>
 											<div class="col">
-												Commune concernée: {{commune2}}
+												Commune concernée: <strong> {{commune2}} </strong>
 											</div>
 										</div>
 										<hr>
@@ -1230,18 +1233,18 @@
 										<hr>
 										<div class="row">
 											<div class="col">
-												Type d'acte: Mariage
+												Type d'acte:<strong> Mariage</strong>
 											</div>
 											<div class="col">
-												Qualité du demandeur: {{qualite2}}
+												Qualité du demandeur: <strong> {{qualite2}} </strong>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col">
-												Nature de l'acte: {{nature2}}
+												Nature de l'acte: <strong> {{nature2}} </strong>
 											</div>
 											<div class="col">
-												Nombre d'exemplaire: {{nombre2}}
+												Nombre d'exemplaire: <strong> {{nombre2}} </strong>
 											</div>
 										</div>
 										<hr>
@@ -1250,31 +1253,31 @@
 										<hr>
 										<div class="row">
 											<div class="col">
-												Civilité: {{civilite2}}
+												Civilité: <strong> {{civilite2}} </strong>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col">
-												Nom: {{nom2}}
+												Nom: <strong> {{nom2}} </strong>
 											</div>
 											<div class="col">
-												Prénoms: {{prenom2}}
-											</div>
-										</div>
-										<div class="row">
-											<div class="col">
-												Numéro régistre: {{numero2}}
-											</div>
-											<div class="col">
-												Date de naissance: {{datenaiss2}}
+												Prénoms: <strong> {{prenom2}} </strong>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col">
-												Date de mariage: {{datemariage2}}
+												Numéro régistre: <strong> {{numero2}} </strong>
 											</div>
 											<div class="col">
-												Lieu de mariage: {{etatcivil_mariage2}}
+												Date de naissance: <strong> {{datenaiss2}} </strong>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Date de mariage: <strong> {{datemariage2}} </strong>
+											</div>
+											<div class="col">
+												Lieu de mariage: <strong> {{etatcivil_mariage2}} </strong>
 											</div>
 										</div>
 										
@@ -1285,10 +1288,10 @@
 										</div>
 										<div class="row">
 											<div class="col">
-												Pays : {{paysB}}
+												Pays : <strong> {{paysB}} </strong>
 											</div>
 											<div class="col">
-												Nationalité: {{nationalite2}}
+												Nationalité: <strong> {{nationalite2}} </strong>
 											</div>
 										</div>
 
@@ -1421,12 +1424,12 @@
 
 				<div class="modal-header">
 					<h5 class="modal-title">Demande acte décès</h5>
-					<button #closeModal (click)="hideModel();" type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button #close3 id="close3" type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 
-				<div lass="modal-body mt-5 mb-5">
+				<div >
 					<div id="stepwizard3">
 						<ul>
 							<li><a href="#step1">Rechercher commune<br /> <small>Motif demende</small> </a></li>
@@ -1474,9 +1477,9 @@
 										<select id="commune3" name="commune3" [(ngModel)]="commune3"
 											class="form-control text-dark" required>
 											<option disabled selected value> -- séléctionner -- </option>
-											<option *ngFor="let com of listCommune" [ngValue]="com.code"
-												value="{{com.code}}">
-												{{com.libelle}}</option>
+											<option *ngFor="let com of listCommune" [ngValue]="com.libelle"
+												value="{{com.libelle}}">
+												 {{com.libelle}}</option>
 										</select>
 										<div class="help-block with-errors text-danger"></div>
 										<br />
@@ -1489,7 +1492,7 @@
 									<div class="form-group">
 										Type d'acte
 										<hr>
-										La commune : {{commune3}} n’est pas en mesure de recevoir votre demande d’acte d’état
+										La commune : <strong> {{commune3}} </strong> n’est pas en mesure de recevoir votre demande d’acte d’état
 										civil de
 										manière dématérialisée. Vous pouvez cependant compléter le formulaire de demande
 										d’acte,
@@ -1563,14 +1566,14 @@
 												demande</label>
 										</div>
 										<div class="custom-control custom-radio custom-control-inline">
-											<input  [(ngModel)]="civilite3" checked type="radio" id="civilite3" name="civilite3"
+											<input  [(ngModel)]="civilite3" checked type="radio" id="civilite31" name="civilite3"
 												value="Monsieur" class="custom-control-input">
-											<label class="custom-control-label" for="civilite1">Monsieur</label>
+											<label class="custom-control-label" for="civilite31">Monsieur</label>
 										</div>
 										<div class="custom-control custom-radio custom-control-inline">
-											<input  [(ngModel)]="civilite3" type="radio" id="civilite3" name="civilite3" value="Madame"
+											<input  [(ngModel)]="civilite3" type="radio" id="civilite32" name="civilite3" value="Madame"
 												class="custom-control-input">
-											<label class="custom-control-label" for="civilite2">Madame</label>
+											<label class="custom-control-label" for="civilite32">Madame</label>
 										</div>
 
 										<div class="row">
@@ -1616,7 +1619,7 @@
 												class="form-control text-dark" required>
 												<option disabled selected value> -- séléctionner -- </option>
 												<option *ngFor="let com of listHospitalier" [ngValue]="com.id"
-													value="{{com.id}}">
+													value="{{com.id}} ">
 													{{com.libelle}}</option>
 											</select>
 												<div class="help-block with-errors text-danger"></div>
@@ -1670,10 +1673,10 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col">
-												Motif de la demande: {{motif3}}
+												Motif de la demande: <strong> {{motif3}} </strong>
 											</div>
 											<div class="col">
-												Commune concernée: {{commune3}}
+												Commune concernée: <strong> {{commune3}} </strong>
 											</div>
 										</div>
 										<hr>
@@ -1682,18 +1685,18 @@
 										<hr>
 										<div class="row">
 											<div class="col">
-												Type d'acte: Décès
+												Type d'acte: <strong>Décès</strong>
 											</div>
 											<div class="col">
-												Qualité du demandeur: {{qualite3}}
+												Qualité du demandeur: <strong> {{qualite3}} </strong>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col">
-												Nature de l'acte: {{nature3}}
+												Nature de l'acte: <strong> {{nature3}} </strong>
 											</div>
 											<div class="col">
-												Nombre d'exemplaire: {{nombre3}}
+												Nombre d'exemplaire: <strong> {{nombre3}} </strong>
 											</div>
 										</div>
 										<hr>
@@ -1702,40 +1705,40 @@
 										<hr>
 										<div class="row">
 											<div class="col">
-												Civilité: {{civilite3}}
+												Civilité: <strong> {{civilite3}} </strong>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col">
-												Nom: {{nom3}}
+												Nom: <strong> {{nom3}} </strong>
 											</div>
 											<div class="col">
-												Prénoms: {{prenom3}}
-											</div>
-										</div>
-										<div class="row">
-											<div class="col">
-												Numéro régistre: {{numero3}}
-											</div>
-											<div class="col">
-												Date de naissance: {{datenaiss3}}
+												Prénoms: <strong> {{prenom3}} </strong>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col">
-												Date décès : {{datedeces3}}
+												Numéro régistre: <strong> {{numero3}} </strong>
 											</div>
 											<div class="col">
-												Lieu : {{lieudeces3}}
+												Date de naissance: <strong> {{datenaiss3}} </strong>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Date décès : <strong> {{datedeces3}} </strong>
+											</div>
+											<div class="col">
+												Lieu : <strong> {{lieudeces3}} </strong>
 											</div>
 										</div>
 
 										<div class="row">
 											<div class="col">
-											Pays : {{paysC}}
+											Pays : <strong> {{paysC}} </strong>
 											</div>
 											<div class="col">
-												Nationalité : {{nationalite3}}
+												Nationalité : <strong> {{nationalite3}} </strong>
 											</div>
 										</div>
 									</div>
@@ -1867,12 +1870,12 @@
 
 				<div class="modal-header">
 					<h5 class="modal-title">Déclaration de décès</h5>
-					<button #closeModal (click)="hideModel();" type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button #close4 id="close4" type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 
-				<div lass="modal-body mt-5 mb-5">
+				<div >
 					<div id="stepwizard4">
 						<ul>
 							<li><a href="#step1">Rechercher commune<br /> <small>Nature declaration</small> </a></li>
@@ -1902,7 +1905,7 @@
 										<select id="communedeces4" name="communedeces4" [(ngModel)]="communedeces4"
 											class="form-control text-dark" required>
 											<option disabled selected value> -- séléctionner -- </option>
-											<option *ngFor="let com of listCommune" [ngValue]="com.code"
+											<option *ngFor="let com of listCommune" [ngValue]="com.libelle"
 												value="{{com.libelle}}">
 												{{com.libelle}}</option>
 										</select>
@@ -2011,9 +2014,9 @@
 												<select id="lieudeces4" name="lieudeces4" [(ngModel)]="lieudeces4"
 												class="form-control text-dark" required>
 												<option disabled selected value> -- séléctionner -- </option>
-												<option *ngFor="let com of listHospitalier" [ngValue]="com.id"
-													value="{{com.id}}">
-													{{com.libelle}}</option>
+												<option *ngFor="let com of listHospitalier" [ngValue]="com.libelle"
+													value="{{com.libelle}}">
+													 {{com.libelle}}</option>
 											</select>
 												<div class="help-block with-errors text-danger"></div>
 											</div>
@@ -2070,11 +2073,11 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col">
-												Commune concernée: {{communedeces4}}
+												Commune concernée: <strong> {{communedeces4}} </strong>
 											</div>
 											<div class="col">
 												
-												Qualité du demandeur: {{qualitedeces4}}
+												Qualité du demandeur: <strong> {{qualitedeces4}} </strong>
 											</div>
 										</div>
 										<hr>
@@ -2083,27 +2086,27 @@
 										<hr>
 										<div class="row">
 											<div class="col">
-												Type d'acte: Déclaration de décès
+												Type d'acte: <strong>Déclaration de décès </strong>
 											</div>
 											<div class="col">
-												Qualité du demandeur: {{civilitedeces4}}
+												Qualité du demandeur: <strong> {{civilitedeces4}} </strong>
 												
 											</div>
 										</div>
 										<div class="row">
 											<div class="col">
-												Nom: {{nomdeces4}}
+												Nom: <strong> {{nomdeces4}} </strong>
 											</div>
 											<div class="col">
-												Prénoms: {{prenomdeces4}}
+												Prénoms: <strong> {{prenomdeces4}} </strong>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col">
-												Date de naissance: {{datenaissdeces4}}
+												Date de naissance: <strong> {{datenaissdeces4}} </strong>
 											</div>
 											<div class="col">
-												Lieu de naissance: {{lieunaissdeces4}}
+												Lieu de naissance: <strong> {{lieunaissdeces4}} </strong>
 											</div>
 										</div>
 										
@@ -2113,23 +2116,23 @@
 										<hr>
 										<div class="row">
 											<div class="col">
-												Date décès: {{datedeces4}}
+												Date décès: <strong> {{datedeces4}} </strong>
 											</div>
 											<div class="col">
-												Lieu : {{lieudeces4}}
-											</div>
-										</div>
-										<div class="row">
-											<div class="col">
-												Heure décès: {{heuredeces4}}
-											</div>
-											<div class="col">
-												Motif : {{motifdeces4}}
+												Lieu : <strong> {{lieudeces4}} </strong>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col">
-												Nom médecin : {{nommedecin4}}
+												Heure décès: <strong> {{heuredeces4}} </strong>
+											</div>
+											<div class="col">
+												Motif : <strong> {{motifdeces4}} </strong>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												Nom médecin : <strong> {{nommedecin4}} </strong>
 											</div>
 										</div>
 										
@@ -2262,7 +2265,7 @@
 
 				<div class="modal-header">
 					<h5 class="modal-title">Type de téléprocédure</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button #close id="close" type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -2300,7 +2303,7 @@
 
 				<div class="modal-header">
 					<h5 class="modal-title">Type de téléprocédure</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button #close id="close" type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>

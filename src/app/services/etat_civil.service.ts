@@ -17,7 +17,7 @@ export class Etat_civilService {
 
   constructor(private http: HttpClient
     ) { }
-    readonly serverUrl = environment.apiURL + "/Etat_civil";
+    readonly serverUrl = environment.apiURL + "/etatcivil";
 
   loadListeEtat_civil() {
     return this.http.get(this.serverUrl).
@@ -30,28 +30,53 @@ export class Etat_civilService {
     )
   }
 
-  getEtat_civilBytype(id_type: number) {
-    return this.http.get(environment.apiURL+"/Etat_civilbytype/"+id_type);
-  }
+//  getEtat_civilBytype(id_type: number) {
+  //  return this.http.get(environment.apiURL+"/Etat_civilbytype/"+id_type);
+ // }
 
   getEtat_civil(id: number) {
-    return this.http.get(`${this.serverUrl}/${id}`);
+    return this.http.get(this.serverUrl + '/' + id).
+    pipe(
+       map((data: Etat_civil) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
-  getEtat_civilBynum(formData: Etat_civil) {
-    //return this.http.get(environment.apiURL+"/Etat_civilbynum/"+formData.numero);
-  }
 
   postEtat_civil(formData: Etat_civil) {
-    return this.http.post(this.serverUrl, formData);
+    return this.http.post(this.serverUrl, formData).
+    pipe(
+       map((data: Etat_civil) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
   putEtat_civil(formData: Etat_civil) {
-    return this.http.put(`${this.serverUrl}/${formData.id}`, formData);
+    return this.http.put(this.serverUrl + '/' + formData.id, formData).
+    pipe(
+       map((data:any) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
   deleteEtat_civil(id: number) {
-    return this.http.delete(`${this.serverUrl}/${id}`);
+    return this.http.delete(this.serverUrl + '/' + id).
+    pipe(
+       map((data:any) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
   }
 
 }

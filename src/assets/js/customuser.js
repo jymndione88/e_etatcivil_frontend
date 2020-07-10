@@ -56,9 +56,9 @@ $(document).ready(function () {
             $('#myForm3').find("input, textarea").val("");
         });
 
-        var btnCancel4 = $('<button></button>').text('Annuler')
-        .addClass('btn btn-danger')
-        .on('click', function () {
+        var btnCancel4 = $('<button></button>').text('AnnulerA')
+        .addClass('btn btn-danger reset4')
+        .on('lick', function () {
             $('#stepwizard4').smartWizard("reset");
             $('#myForm4').find("input, textarea").val("");
         });

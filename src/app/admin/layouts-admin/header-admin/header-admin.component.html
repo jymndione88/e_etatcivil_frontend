@@ -6,7 +6,7 @@
       <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="index3.html" class="nav-link">Accueil</a>
+      <a href="/layoutadmin" class="nav-link">Accueil</a>
     </li>
   </ul>
 
@@ -22,34 +22,34 @@
     </div>
   </form>
 
+
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
-   
-    <!-- Notifications Dropdown Menu -->
+    <div *ngIf="isLoggedIn" class="d-flex flex-row-reverse">
+      <ul class="d-flex flex-row ">
+        <li><a href="#" class="nav-link" style="color: blue;" >Bienvenue  {{ log }}</a></li> /
+        <li><a href class="nav-link" (click)="logout()" style="color: blue;">Déconnexion</a></li>
+      </ul>
+    </div>
     <li class="nav-item dropdown">
       <a class="nav-link" data-toggle="dropdown" href="#">
         <i class="far fa-bell"></i>
-        <span class="badge badge-warning navbar-badge">15</span>
+        <span class="badge badge-warning navbar-badge">8</span>
       </a>
       <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-        <span class="dropdown-item dropdown-header">15 Notifications</span>
+        <span class="dropdown-item dropdown-header">8 Notifications</span>
         <div class="dropdown-divider"></div>
         <a href="#" class="dropdown-item">
-          <i class="fas fa-envelope mr-2"></i> 4 new messages
-          <span class="float-right text-muted text-sm">3 mins</span>
+          <i class="fas fa-envelope mr-2"></i> 5 messages
+          <span class="float-right text-muted text-sm">3 minutes</span>
         </a>
         <div class="dropdown-divider"></div>
         <a href="#" class="dropdown-item">
-          <i class="fas fa-users mr-2"></i> 8 friend requests
-          <span class="float-right text-muted text-sm">12 hours</span>
+          <i class="fas fa-users mr-2"></i> 3 nouveau requetes
+          <span class="float-right text-muted text-sm">12 heures</span>
         </a>
         <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
-          <i class="fas fa-file mr-2"></i> 3 new reports
-          <span class="float-right text-muted text-sm">2 days</span>
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        <a href="#" class="dropdown-item dropdown-footer">Voir toutes les Notifications</a>
       </div>
     </li>
    

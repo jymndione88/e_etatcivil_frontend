@@ -29,9 +29,16 @@ export class Lieu_hospitalierService {
     )
   }
 
-  //getLieu_hospitalierBytype(id_type: number) {
-   // return this.http.get(environment.apiURL+"/Lieu_hospitalierbytype/"+id_type);
- // }
+  getLieu_hospitalierLibell(id: number, libelle: string) {
+    return this.http.get(this.serverUrl + '/' + id + '/' + libelle).
+    pipe(
+       map((data: Lieu_hospitalier) => {
+         return data;
+       }), catchError( error => {
+         return throwError( 'Erreur:' + error );
+       })
+    )
+  }
 
   getLieu_hospitalier(id: number) {
     return this.http.get(this.serverUrl + '/' + id).
@@ -44,14 +51,10 @@ export class Lieu_hospitalierService {
     )
   }
 
-  getLieu_hospitalierBynum(formData: Lieu_hospitalier) {
-   // return this.http.get(environment.apiURL+"/Lieu_hospitalierbynum/"+formData.numero);
-  }
-
   postLieu_hospitalier(formData: Lieu_hospitalier) {
     return this.http.post(this.serverUrl, formData).
     pipe(
-       map((data: Lieu_hospitalier[]) => {
+       map((data: Lieu_hospitalier) => {
          return data;
        }), catchError( error => {
          return throwError( 'Erreur:' + error );

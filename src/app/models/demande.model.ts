@@ -20,7 +20,7 @@ export class Demande {
     numRegistre: number;
     pays: string;
     nationalite: string;
-    etat: string;
+    etat: boolean;
     commentaire: string;
 
     idOfficier: Officier;

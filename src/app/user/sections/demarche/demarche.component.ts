@@ -111,18 +111,43 @@ export class DemarcheComponent implements OnInit {
   }
 
     
-  @ViewChild('closeModal') private closeModal: ElementRef;
-  public hideModel() {
-      this.closeModal.nativeElement.click();      
+ // @ViewChild('close') private close: ElementRef;
+ // public hideModel() {
+   //   this.close.nativeElement.click();      
+ // }
+
+  @ViewChild('close4') private close4: ElementRef;
+  public hideModel4() {
+      this.close4.nativeElement.click();      
   }
 
+  @ViewChild('close3') private close3: ElementRef;
+  public hideModel3() {
+      this.close3.nativeElement.click();      
+  }
+
+  @ViewChild('close2') private close2: ElementRef;
+  public hideModel2() {
+      this.close2.nativeElement.click();      
+  }
+
+  @ViewChild('close1') private close1: ElementRef;
+  public hideModel1() {
+      this.close1.nativeElement.click();      
+  }
+
+  @ViewChild('closeA') private closeA: ElementRef;
+  public hideModelA() {
+      this.closeA.nativeElement.click();      
+  }
+ 
   onSubmit(form: NgForm, type: string) {
   //console.log("submit");
   //console.log(form.value);
 
   if (type === "decdeces"){
    
-    if (this.paye){
+    //if (this.paye){
 
       this.declaration= new Declaration();
    
@@ -149,7 +174,7 @@ export class DemarcheComponent implements OnInit {
        this.deces.heureDeces= dat;
        this.deces.motif= form.value.motifdeces4;
    
-       this.serv_lieuhospitalier.getLieu_hospitalier(form.value.lieudeces4).subscribe((data2: Lieu_hospitalier)=>{
+       this.serv_lieuhospitalier.getLieu_hospitalierLibell(1,form.value.lieudeces4).subscribe((data2: Lieu_hospitalier)=>{
          this.deces.idLieuHospitalier= data2;
          
          this.deces.idDeclaration= data1;
@@ -181,7 +206,7 @@ export class DemarcheComponent implements OnInit {
                 
                   this.resetForm(form);
                   this.toastr.successToastr('Votre déclaration de décès est enregistrée avec succées!', 'Declaration acte civil!');
-                  this.hideModel();
+                  this.hideModel4();
                 });
   
               });
@@ -193,11 +218,9 @@ export class DemarcheComponent implements OnInit {
     });
     });
     
-    }else{
-      
- this.toastr.warningToastr('Veuillez effectuer le paiment!', 'Declaration acte civil!');
-
-    }
+    //}else{     
+  //this.toastr.warningToastr('Veuillez effectuer le paiment!', 'Declaration acte civil!');
+    //}
     
   }else
   if (type === "decnaissance"){
@@ -235,7 +258,7 @@ export class DemarcheComponent implements OnInit {
 
        this.naissance.idDeclaration= data1;
        
-       this.serv_lieuhospitalier.getLieu_hospitalier(form.value.lieunaiss1).subscribe((data2: Lieu_hospitalier)=>{
+       this.serv_lieuhospitalier.getLieu_hospitalierLibell(1,form.value.lieunaiss1).subscribe((data2: Lieu_hospitalier)=>{
         
        this.naissance.idLieuHospitalier= data2;
         
@@ -279,7 +302,7 @@ export class DemarcheComponent implements OnInit {
                   
                     this.resetForm(form);
                     this.toastr.successToastr('Votre déclaration de naissance est enregistrée avec succées!', 'Declaration acte civil!');
-                    this.hideModel();
+                    this.hideModel1();
                   });
     
                 });
@@ -315,7 +338,7 @@ export class DemarcheComponent implements OnInit {
               
                 this.resetForm(form);
                 this.toastr.successToastr('Votre déclaration de naissance est enregistrée avec succées!', 'Declaration acte civil!');
-                this.hideModel();
+                this.hideModel1();
               });
 
             });
@@ -355,7 +378,7 @@ export class DemarcheComponent implements OnInit {
     this.demande.nationalite= form.value.nationalite;
 
     this.demande.idOfficier= null;
-
+    
     this.serv_declaration.getDeclarationBynum(1, form.value.numero).subscribe((data: Declaration)=>{
       
       if(data != null){
@@ -368,6 +391,7 @@ export class DemarcheComponent implements OnInit {
         this.serv_demande.postDemande(this.demande).subscribe((data1: Demande)=>{
           console.log(data1);
 
+          this.livraison= new Livraison();
           // enregistrement livraison
           if(form.value.reception === 'courrier'){
             console.log("courrier");
@@ -385,13 +409,15 @@ export class DemarcheComponent implements OnInit {
 
           this.serv_modelivraison.getMode_livrisonBytype(1, this.molivraison).subscribe((data5: Mode_livraison)=>{
           
+            console.log(data5);
+           
             this.livraison.idModeLivraison= data5;
             this.livraison.idDemande= data1;
             this.serv_livraison.postLivraison(this.livraison).subscribe((data6: Livraison)=>{
             
               this.resetForm(form);
               this.toastr.successToastr('Votre demande acte de naissance est enregistrée avec succées!', 'Demande acte civil!');
-              this.hideModel();
+              this.hideModelA();
             });
 
           });
@@ -435,11 +461,13 @@ export class DemarcheComponent implements OnInit {
 
     this.serv_mariage.getMariageByDeclaration(1, form.value.numero2).subscribe((data: Mariage)=>{
       
+      console.log(data);
       if(data != null){
      
         this.demande.idMariage= data;
         this.serv_demande.postDemande(this.demande).subscribe((data1: Demande)=>{
           console.log(data1);
+          this.livraison= new Livraison();
 
           // enregistrement livraison
           if(form.value.reception === 'courrier'){
@@ -464,7 +492,7 @@ export class DemarcheComponent implements OnInit {
             
               this.resetForm(form);
               this.toastr.successToastr('Votre demande acte de mariage est enregistrée avec succées!', 'Demande acte civil!');
-              this.hideModel();
+              this.hideModel2();
             });
 
           });
@@ -480,7 +508,7 @@ export class DemarcheComponent implements OnInit {
   //  }
     
   }else
-  if (type === "demdedes"){
+  if (type === "demdeces"){
     console.log("dem deces");
     
    // if (this.paye){
@@ -504,8 +532,9 @@ export class DemarcheComponent implements OnInit {
 
     this.demande.idOfficier= null;
 
-    this.serv_declaration.getDeclarationBynum(1, form.value.numero).subscribe((data: Declaration)=>{
+    this.serv_declaration.getDeclarationBynum(1, form.value.numero3).subscribe((data: Declaration)=>{
       
+      console.log(data);
       if(data != null){
       this.serv_deces.getDecesByDeclaration(1, data.id).subscribe((data9: Deces)=>{
 
@@ -515,6 +544,8 @@ export class DemarcheComponent implements OnInit {
         this.demande.idDeces= data9;
         this.serv_demande.postDemande(this.demande).subscribe((data1: Demande)=>{
           console.log(data1);
+
+          this.livraison= new Livraison();
 
           // enregistrement livraison
           if(form.value.reception === 'courrier'){
@@ -539,7 +570,7 @@ export class DemarcheComponent implements OnInit {
             
               this.resetForm(form);
               this.toastr.successToastr('Votre demande acte de décès est enregistrée avec succées!', 'Demande acte civil!');
-              this.hideModel();
+              this.hideModel3();
             });
 
           });
